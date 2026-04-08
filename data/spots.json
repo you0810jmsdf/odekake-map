@@ -191,5 +191,29 @@
     "hiddenReason": "",
     "updateSource": "",
     "photoPreference": "すでに共有方法が分かる"
+  },
+  {
+    "id": "n-s-factory",
+    "name": "N's factory",
+    "category": "other",
+    "categoryLabel": "その他",
+    "description": "革工房",
+    "address": "千葉県印西市高花6-200-10",
+    "reason": "テスト",
+    "author": "テスト",
+    "url": "https://sites.google.com/view/ns-factory/home",
+    "referenceUrls": [
+      "https://sites.google.com/view/ns-factory/home"
+    ],
+    "photos": [],
+    "hidden": false,
+    "lat": 35.7922259,
+    "lng": 140.1385898,
+    "createdAt": "2026-04-08T06:24:10.000Z",
+    "updatedAt": "2026-04-08T06:24:10.000Z",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": ""
   }
 ]
