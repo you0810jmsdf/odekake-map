@@ -123,9 +123,11 @@ body {
 }
 
 .hero h1 {
-  font-family: "Fraunces", serif;
+  font-family: "M PLUS Rounded 1c", sans-serif;
   font-size: clamp(2rem, 5vw, 3.8rem);
   line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: 0.02em;
 }
 
 .hero__lead {
@@ -365,6 +367,75 @@ body {
   display: grid;
   gap: 10px;
   margin-top: 16px;
+}
+
+.detail-carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(79, 58, 41, 0.08);
+}
+
+.detail-carousel__track {
+  display: flex;
+  transition: transform 220ms ease;
+}
+
+.detail-carousel__slide {
+  min-width: 100%;
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, rgba(240, 214, 183, 0.7), rgba(255, 250, 244, 0.95));
+}
+
+.detail-carousel__slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-carousel__nav {
+  position: absolute;
+  inset: auto 12px 12px auto;
+  display: flex;
+  gap: 8px;
+}
+
+.detail-carousel__button {
+  min-width: 38px;
+  min-height: 38px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(43, 33, 26, 0.75);
+  color: #fff8f2;
+  font: inherit;
+  cursor: pointer;
+}
+
+.detail-carousel__dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.detail-carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(79, 58, 41, 0.2);
+}
+
+.detail-carousel__dot.is-active {
+  background: var(--accent);
+}
+
+.detail-carousel__caption {
+  margin-top: 10px;
+  color: var(--text-soft);
+  font-size: 0.88rem;
 }
 
 .detail-card__meta-line {

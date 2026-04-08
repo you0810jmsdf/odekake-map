@@ -3,11 +3,19 @@
     "id": "sample-spot",
     "name": "スポット名",
     "category": "shopping",
+    "categoryLabel": "ショッピング",
     "description": "スポットの説明文",
     "address": "住所",
     "reason": "おすすめ理由",
     "author": "投稿者名またはニックネーム",
     "url": "https://example.com/",
+    "photos": [
+      {
+        "src": "https://example.com/photo.jpg",
+        "alt": "写真の代替テキスト",
+        "caption": "写真の説明文"
+      }
+    ],
     "lat": 35.0,
     "lng": 140.0
   }

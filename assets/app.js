@@ -23,13 +23,15 @@ const embedMode = params.get("embed") === "1";
 const state = {
   spots: [],
   boundary: null,
-  activeCategories: new Set(config.categoryDefinitions.map((category) => category.id)),
+  categories: [],
+  activeCategories: new Set(),
   searchText: "",
   selectedSpotId: null,
   markers: [],
   infoWindow: null,
   map: null,
-  boundaryPolygon: null
+  boundaryPolygons: [],
+  carouselIndexBySpotId: {}
 };
 
 const elements = {
@@ -64,6 +66,8 @@ async function boot() {
 
   state.spots = normalizeSpots(spots);
   state.boundary = boundary;
+  state.categories = buildCategories(state.spots);
+  state.activeCategories = new Set(state.categories.map((category) => category.id));
   state.selectedSpotId = state.spots[0]?.id ?? null;
 
   renderCategoryFilters();
@@ -134,7 +138,7 @@ function renderCategoryFilters() {
 
   elements.categoryFilters.innerHTML = "";
 
-  for (const category of config.categoryDefinitions) {
+  for (const category of state.categories) {
     const button = document.createElement("button");
     button.type = "button";
     button.className = `chip${state.activeCategories.has(category.id) ? " is-active" : ""}`;
@@ -218,16 +222,53 @@ function normalizeSpots(spots) {
     .map((spot, index) => ({
       id: String(spot.id || `spot-${index + 1}`),
       name: String(spot.name || "名称未設定"),
-      category: String(spot.category || "other"),
+      category: slugifyCategory(spot.category || "other"),
+      categoryLabel: String(spot.categoryLabel || spot.category || "その他"),
       description: String(spot.description || ""),
       address: String(spot.address || ""),
       reason: String(spot.reason || ""),
       author: String(spot.author || ""),
       url: String(spot.url || ""),
+      photos: normalizePhotos(spot.photos),
       lat: Number(spot.lat),
       lng: Number(spot.lng)
     }))
     .filter((spot) => Number.isFinite(spot.lat) && Number.isFinite(spot.lng));
+}
+
+function normalizePhotos(photos) {
+  if (!Array.isArray(photos)) {
+    return [];
+  }
+
+  return photos
+    .filter((photo) => photo && typeof photo === "object")
+    .map((photo) => ({
+      src: String(photo.src || ""),
+      alt: String(photo.alt || ""),
+      caption: String(photo.caption || "")
+    }))
+    .filter((photo) => photo.src);
+}
+
+function buildCategories(spots) {
+  const categories = new Map();
+
+  for (const category of config.categoryDefinitions) {
+    categories.set(category.id, category);
+  }
+
+  for (const spot of spots) {
+    if (!categories.has(spot.category)) {
+      categories.set(spot.category, {
+        id: spot.category,
+        label: spot.categoryLabel || spot.category,
+        color: colorFromCategory(spot.category)
+      });
+    }
+  }
+
+  return [...categories.values()];
 }
 
 function getVisibleSpots() {
@@ -241,7 +282,7 @@ function getVisibleSpots() {
       return true;
     }
 
-    const haystack = `${spot.name} ${spot.description} ${spot.address} ${spot.reason}`.toLowerCase();
+    const haystack = `${spot.name} ${spot.description} ${spot.address} ${spot.reason} ${spot.categoryLabel}`.toLowerCase();
     return haystack.includes(state.searchText);
   });
 }
@@ -293,7 +334,6 @@ function renderList() {
     title.textContent = spot.name;
 
     const badge = createBadge(spot.category);
-
     top.append(title, badge);
 
     const body = document.createElement("p");
@@ -335,6 +375,10 @@ function renderDetail() {
   description.textContent = spot.description || "説明文はまだ登録されていません。";
   stack.appendChild(description);
 
+  if (spot.photos.length) {
+    stack.appendChild(createCarousel(spot));
+  }
+
   const meta = document.createElement("div");
   meta.className = "detail-card__meta";
   meta.appendChild(createMetaLine("住所", spot.address || "未登録"));
@@ -354,6 +398,79 @@ function renderDetail() {
   stack.appendChild(meta);
   elements.detailCard.innerHTML = "";
   elements.detailCard.appendChild(stack);
+}
+
+function createCarousel(spot) {
+  const root = document.createElement("div");
+  const currentIndex = Math.max(0, Math.min(state.carouselIndexBySpotId[spot.id] || 0, spot.photos.length - 1));
+  state.carouselIndexBySpotId[spot.id] = currentIndex;
+
+  const carousel = document.createElement("div");
+  carousel.className = "detail-carousel";
+
+  const track = document.createElement("div");
+  track.className = "detail-carousel__track";
+  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+  for (const photo of spot.photos) {
+    const slide = document.createElement("div");
+    slide.className = "detail-carousel__slide";
+
+    const image = document.createElement("img");
+    image.src = photo.src;
+    image.alt = photo.alt || spot.name;
+    image.loading = "lazy";
+
+    slide.appendChild(image);
+    track.appendChild(slide);
+  }
+
+  carousel.appendChild(track);
+
+  if (spot.photos.length > 1) {
+    const nav = document.createElement("div");
+    nav.className = "detail-carousel__nav";
+    nav.appendChild(createCarouselButton("‹", spot, -1));
+    nav.appendChild(createCarouselButton("›", spot, 1));
+    carousel.appendChild(nav);
+  }
+
+  root.appendChild(carousel);
+
+  if (spot.photos.length > 1) {
+    const dots = document.createElement("div");
+    dots.className = "detail-carousel__dots";
+    spot.photos.forEach((_, index) => {
+      const dot = document.createElement("span");
+      dot.className = `detail-carousel__dot${index === currentIndex ? " is-active" : ""}`;
+      dots.appendChild(dot);
+    });
+    root.appendChild(dots);
+  }
+
+  const captionText = spot.photos[currentIndex]?.caption || spot.photos[currentIndex]?.alt;
+  if (captionText) {
+    const caption = document.createElement("p");
+    caption.className = "detail-carousel__caption";
+    caption.textContent = captionText;
+    root.appendChild(caption);
+  }
+
+  return root;
+}
+
+function createCarouselButton(label, spot, diff) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "detail-carousel__button";
+  button.textContent = label;
+  button.addEventListener("click", () => {
+    const current = state.carouselIndexBySpotId[spot.id] || 0;
+    const next = (current + diff + spot.photos.length) % spot.photos.length;
+    state.carouselIndexBySpotId[spot.id] = next;
+    renderDetail();
+  });
+  return button;
 }
 
 function createMetaLine(label, value) {
@@ -376,10 +493,7 @@ function createMetaLine(label, value) {
 }
 
 function createBadge(categoryId) {
-  const category = config.categoryDefinitions.find((item) => item.id === categoryId)
-    || config.categoryDefinitions.find((item) => item.id === "other")
-    || { label: "その他", color: "#5a76a8" };
-
+  const category = state.categories.find((item) => item.id === categoryId) || { label: "その他", color: "#5a76a8" };
   const badge = document.createElement("span");
   badge.className = "spot-badge";
   badge.textContent = category.label;
@@ -401,14 +515,14 @@ async function loadGoogleMaps() {
     };
 
     const script = document.createElement("script");
-    const params = new URLSearchParams({
+    const query = new URLSearchParams({
       key: config.mapsApiKey,
       callback: callbackName,
       language: "ja",
       region: "JP"
     });
 
-    script.src = `https://maps.googleapis.com/maps/api/js?${params.toString()}`;
+    script.src = `https://maps.googleapis.com/maps/api/js?${query.toString()}`;
     script.async = true;
     script.defer = true;
     script.onerror = () => {
@@ -443,21 +557,23 @@ function initGoogleMap() {
 }
 
 function drawBoundary() {
-  const paths = state.boundary?.paths;
-  if (!Array.isArray(paths) || !paths.length) {
+  const polygons = normalizeBoundaryPaths(state.boundary?.paths);
+  if (!polygons.length) {
     return;
   }
 
-  state.boundaryPolygon = new google.maps.Polygon({
-    paths,
-    strokeColor: "#ba5c3d",
-    strokeOpacity: 0.9,
-    strokeWeight: 2,
-    fillColor: "#f0d6b7",
-    fillOpacity: 0.18
+  state.boundaryPolygons = polygons.map((paths) => {
+    const polygon = new google.maps.Polygon({
+      paths,
+      strokeColor: "#ba5c3d",
+      strokeOpacity: 0.9,
+      strokeWeight: 2,
+      fillColor: "#f0d6b7",
+      fillOpacity: 0.18
+    });
+    polygon.setMap(state.map);
+    return polygon;
   });
-
-  state.boundaryPolygon.setMap(state.map);
 }
 
 function createMarkers() {
@@ -465,9 +581,7 @@ function createMarkers() {
   state.markers = [];
 
   for (const spot of state.spots) {
-    const category = config.categoryDefinitions.find((item) => item.id === spot.category)
-      || config.categoryDefinitions.find((item) => item.id === "other")
-      || { color: "#5a76a8" };
+    const category = state.categories.find((item) => item.id === spot.category) || { color: "#5a76a8" };
 
     const marker = new google.maps.Marker({
       position: { lat: spot.lat, lng: spot.lng },
@@ -505,9 +619,11 @@ function fitMapToData() {
     hasPoint = true;
   }
 
-  for (const point of state.boundary?.paths || []) {
-    bounds.extend(point);
-    hasPoint = true;
+  for (const polygon of normalizeBoundaryPaths(state.boundary?.paths)) {
+    for (const point of polygon) {
+      bounds.extend(point);
+      hasPoint = true;
+    }
   }
 
   if (hasPoint) {
@@ -557,7 +673,6 @@ function focusMarker(spotId, panToMap) {
 
   const entry = state.markers.find((item) => item.spotId === spotId);
   const spot = state.spots.find((item) => item.id === spotId);
-
   if (!entry || !spot) {
     return;
   }
@@ -592,7 +707,7 @@ function showMapMessage(message) {
 }
 
 function getCategoryLabel(categoryId) {
-  return config.categoryDefinitions.find((item) => item.id === categoryId)?.label || "その他";
+  return state.categories.find((item) => item.id === categoryId)?.label || "その他";
 }
 
 function truncateText(text, maxLength) {
@@ -619,4 +734,37 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+}
+
+function normalizeBoundaryPaths(paths) {
+  if (!Array.isArray(paths) || !paths.length) {
+    return [];
+  }
+
+  if (isLatLngPoint(paths[0])) {
+    return [paths];
+  }
+
+  return paths.filter((polygon) => Array.isArray(polygon) && polygon.every(isLatLngPoint));
+}
+
+function isLatLngPoint(point) {
+  return Boolean(point)
+    && typeof point === "object"
+    && Number.isFinite(Number(point.lat))
+    && Number.isFinite(Number(point.lng));
+}
+
+function slugifyCategory(value) {
+  return String(value)
+    .trim()
+    .toLowerCase()
+    .replaceAll(/[^a-z0-9\u3040-\u30ff\u3400-\u9fff]+/g, "-")
+    .replaceAll(/^-+|-+$/g, "") || "other";
+}
+
+function colorFromCategory(categoryId) {
+  const palette = ["#8d6ad9", "#2f8f83", "#c15d87", "#3c76c8", "#c98d24", "#6e8b3d"];
+  const total = [...categoryId].reduce((sum, char) => sum + char.charCodeAt(0), 0);
+  return palette[total % palette.length];
 }

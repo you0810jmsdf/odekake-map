@@ -8,6 +8,18 @@
     "reason": "家族でも一人でも立ち寄りやすく、雨の日にも過ごしやすいです。",
     "author": "COCoLa事務局",
     "url": "https://chibanewtown-aeonmall.com/",
+    "photos": [
+      {
+        "src": "https://images.unsplash.com/photo-1481437156560-3205f6a55735?auto=format&fit=crop&w=1200&q=80",
+        "alt": "ショッピングモールの外観",
+        "caption": "大型商業施設の雰囲気が伝わるイメージ写真"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=1200&q=80",
+        "alt": "買い物を楽しむ人の様子",
+        "caption": "週末のおでかけ先のイメージ"
+      }
+    ],
     "lat": 35.8016,
     "lng": 140.114
   },
@@ -20,6 +32,13 @@
     "reason": "駅近で立ち寄りやすく、休日のおでかけ先として使いやすいです。",
     "author": "COCoLa事務局",
     "url": "https://www.bighop.jp/",
+    "photos": [
+      {
+        "src": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80",
+        "alt": "屋外型モールのイメージ",
+        "caption": "開放感のあるモールイメージ"
+      }
+    ],
     "lat": 35.7932,
     "lng": 140.1677
   },
@@ -32,6 +51,13 @@
     "reason": "子ども連れにも散歩にも向いていて、地域の雰囲気を感じられます。",
     "author": "COCoLa事務局",
     "url": "",
+    "photos": [
+      {
+        "src": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+        "alt": "公園と緑地の風景",
+        "caption": "散歩やピクニックに向いた景色のイメージ"
+      }
+    ],
     "lat": 35.7982,
     "lng": 140.1502
   },
@@ -39,23 +65,39 @@
     "id": "inzai-gourmet",
     "name": "駅前のおすすめカフェ",
     "category": "gourmet",
+    "categoryLabel": "ぐるめ",
     "description": "投稿例として配置しているサンプルスポットです。実運用時は正式データへ差し替えてください。",
     "address": "千葉県印西市中央南1丁目",
     "reason": "待ち合わせにも使いやすく、雰囲気の良い一杯を楽しめます。",
     "author": "サンプル投稿",
     "url": "",
+    "photos": [
+      {
+        "src": "https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=80",
+        "alt": "カフェのドリンク写真",
+        "caption": "落ち着いた時間を過ごせるカフェのイメージ"
+      }
+    ],
     "lat": 35.7948,
     "lng": 140.1121
   },
   {
     "id": "local-spot",
     "name": "地域の小さなおすすめスポット",
-    "category": "other",
-    "description": "文化施設や景観スポットなど、今後カテゴリ拡張しやすいようその他枠も用意しています。",
+    "category": "アート",
+    "categoryLabel": "アート",
+    "description": "文化施設や景観スポットなど、今後カテゴリ拡張しやすいようフォームで新カテゴリを扱えるようにしています。",
     "address": "千葉県白井市清水口1丁目",
     "reason": "将来の横展開を見据えたサンプルデータです。",
     "author": "COCoLa事務局",
     "url": "",
+    "photos": [
+      {
+        "src": "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1200&q=80",
+        "alt": "アート展示のイメージ",
+        "caption": "フォームで追加された新カテゴリも表示可能です"
+      }
+    ],
     "lat": 35.7893,
     "lng": 140.0584
   }

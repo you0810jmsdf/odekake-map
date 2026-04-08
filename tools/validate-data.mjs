@@ -94,13 +94,15 @@ function validateSpots(spotsData, categoryIds) {
       seenIds.add(spot.id);
     }
 
-    if (typeof spot.category === "string" && categoryIds.length && !categoryIds.includes(spot.category)) {
-      fail(`ERROR: spots[${row}].category '${spot.category}' は config.js のカテゴリ定義にありません。`);
+    if (typeof spot.category === "string" && categoryIds.length && !categoryIds.includes(slugifyCategory(spot.category))) {
+      warn(`WARN: spots[${row}].category '${spot.category}' は config.js の初期カテゴリ定義外です。動的カテゴリとして扱われます。`);
     }
 
     if (typeof spot.url === "string" && spot.url && !/^https?:\/\//.test(spot.url)) {
       warn(`WARN: spots[${row}].url は http または https で始めることを推奨します。`);
     }
+
+    validatePhotos(spot.photos, row);
   });
 }
 
@@ -117,19 +119,55 @@ function validateBoundary(boundaryData) {
     return;
   }
 
-  if (boundaryData.paths.length < 3) {
-    fail("ERROR: boundary.paths は 3 点以上必要です。");
+  const polygons = isPoint(boundaryData.paths[0]) ? [boundaryData.paths] : boundaryData.paths;
+  if (!polygons.length) {
+    fail("ERROR: boundary.paths は 1 つ以上のポリゴンを含む必要があります。");
+    return;
   }
 
-  boundaryData.paths.forEach((point, index) => {
-    const row = index + 1;
-    if (!point || typeof point !== "object" || Array.isArray(point)) {
-      fail(`ERROR: boundary.paths[${row}] はオブジェクトである必要があります。`);
+  polygons.forEach((polygon, polygonIndex) => {
+    if (!Array.isArray(polygon)) {
+      fail(`ERROR: boundary.paths[${polygonIndex + 1}] は配列である必要があります。`);
       return;
     }
 
-    requireNumber(point.lat, `boundary.paths[${row}].lat`);
-    requireNumber(point.lng, `boundary.paths[${row}].lng`);
+    if (polygon.length < 3) {
+      fail(`ERROR: boundary.paths[${polygonIndex + 1}] は 3 点以上必要です。`);
+    }
+
+    polygon.forEach((point, index) => {
+      const row = index + 1;
+      if (!point || typeof point !== "object" || Array.isArray(point)) {
+        fail(`ERROR: boundary.paths[${polygonIndex + 1}][${row}] はオブジェクトである必要があります。`);
+        return;
+      }
+
+      requireNumber(point.lat, `boundary.paths[${polygonIndex + 1}][${row}].lat`);
+      requireNumber(point.lng, `boundary.paths[${polygonIndex + 1}][${row}].lng`);
+    });
+  });
+}
+
+function validatePhotos(photos, spotIndex) {
+  if (photos === undefined) {
+    return;
+  }
+
+  if (!Array.isArray(photos)) {
+    fail(`ERROR: spots[${spotIndex}].photos は配列である必要があります。`);
+    return;
+  }
+
+  photos.forEach((photo, index) => {
+    const row = index + 1;
+    if (!photo || typeof photo !== "object" || Array.isArray(photo)) {
+      fail(`ERROR: spots[${spotIndex}].photos[${row}] はオブジェクトである必要があります。`);
+      return;
+    }
+
+    requireString(photo.src, `spots[${spotIndex}].photos[${row}].src`);
+    requireString(photo.alt, `spots[${spotIndex}].photos[${row}].alt`, false);
+    requireString(photo.caption, `spots[${spotIndex}].photos[${row}].caption`, false);
   });
 }
 
@@ -150,6 +188,22 @@ function requireNumber(value, label) {
   if (typeof value !== "number" || !Number.isFinite(value)) {
     fail(`ERROR: ${label} は数値である必要があります。`);
   }
+}
+
+function isPoint(value) {
+  return Boolean(value)
+    && typeof value === "object"
+    && !Array.isArray(value)
+    && Number.isFinite(Number(value.lat))
+    && Number.isFinite(Number(value.lng));
+}
+
+function slugifyCategory(value) {
+  return String(value)
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9\u3040-\u30ff\u3400-\u9fff]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "other";
 }
 
 function info(message) {
