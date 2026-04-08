@@ -19,6 +19,7 @@ const defaultConfig = {
 const config = Object.assign({}, defaultConfig, window.ODEKAKE_MAP_CONFIG || {});
 const params = new URLSearchParams(window.location.search);
 const embedMode = params.get("embed") === "1";
+const draftStorageKey = "odekake-map-submit-draft";
 
 const state = {
   spots: [],
@@ -31,7 +32,16 @@ const state = {
   infoWindow: null,
   map: null,
   boundaryPolygons: [],
-  carouselIndexBySpotId: {}
+  carouselIndexBySpotId: {},
+  draft: {
+    name: "",
+    category: "",
+    address: "",
+    description: "",
+    reason: "",
+    url: "",
+    author: ""
+  }
 };
 
 const elements = {
@@ -46,7 +56,26 @@ const elements = {
   detailCard: document.querySelector("#detail-card"),
   spotList: document.querySelector("#spot-list"),
   resultCount: document.querySelector("#result-count"),
-  statusPanel: document.querySelector("#status-panel")
+  statusPanel: document.querySelector("#status-panel"),
+  submitAssistLead: document.querySelector("#submit-assist-lead"),
+  submitAssistTips: document.querySelector("#submit-assist-tips"),
+  draftName: document.querySelector("#draft-name"),
+  draftCategory: document.querySelector("#draft-category"),
+  draftAddress: document.querySelector("#draft-address"),
+  draftDescription: document.querySelector("#draft-description"),
+  draftReason: document.querySelector("#draft-reason"),
+  draftUrl: document.querySelector("#draft-url"),
+  draftAuthor: document.querySelector("#draft-author"),
+  draftPreview: document.querySelector("#draft-preview"),
+  copyDraftButton: document.querySelector("#copy-draft-button"),
+  copyOpenFormLink: document.querySelector("#copy-open-form-link"),
+  clearDraftButton: document.querySelector("#clear-draft-button"),
+  draftCopyStatus: document.querySelector("#draft-copy-status"),
+  draftProgressText: document.querySelector("#draft-progress-text"),
+  draftRequiredList: document.querySelector("#draft-required-list"),
+  fieldNameWrap: document.querySelector("#field-name-wrap"),
+  fieldAddressWrap: document.querySelector("#field-address-wrap"),
+  fieldDescriptionWrap: document.querySelector("#field-description-wrap")
 };
 
 boot().catch((error) => {
@@ -71,6 +100,7 @@ async function boot() {
   state.selectedSpotId = state.spots[0]?.id ?? null;
 
   renderCategoryFilters();
+  initializeDraftSupport();
   renderDetail();
   renderList();
   updateMeta();
@@ -102,6 +132,8 @@ function applyConfig() {
 
   configureExternalLink(elements.submitLink, config.submitFormUrl);
   configureExternalLink(elements.editLink, config.editFormUrl);
+  configureExternalLink(elements.copyOpenFormLink, config.submitFormUrl);
+  renderSubmitAssistIntro();
   renderStatusPanel();
 }
 
@@ -129,6 +161,240 @@ function bindEvents() {
     updateMarkerVisibility();
     updateMeta();
   });
+
+  bindDraftEvents();
+}
+
+function bindDraftEvents() {
+  const bindings = [
+    [elements.draftName, "name"],
+    [elements.draftCategory, "category"],
+    [elements.draftAddress, "address"],
+    [elements.draftDescription, "description"],
+    [elements.draftReason, "reason"],
+    [elements.draftUrl, "url"],
+    [elements.draftAuthor, "author"]
+  ];
+
+  for (const [element, key] of bindings) {
+    element?.addEventListener("input", (event) => {
+      state.draft[key] = event.target.value.trim();
+      syncDraftUi();
+    });
+  }
+
+  elements.copyDraftButton?.addEventListener("click", copyDraftPreview);
+  elements.copyOpenFormLink?.addEventListener("click", handleCopyAndOpenForm);
+  elements.clearDraftButton?.addEventListener("click", clearDraft);
+}
+
+function initializeDraftSupport() {
+  hydrateDraftFromStorage();
+  populateDraftCategoryOptions();
+  syncDraftInputs();
+  syncDraftUi();
+}
+
+function renderSubmitAssistIntro() {
+  if (elements.submitAssistLead) {
+    elements.submitAssistLead.textContent = `You can organize what to submit for ${config.regionName} before opening the form.`;
+  }
+
+  if (!elements.submitAssistTips) {
+    return;
+  }
+
+  const tips = [
+    "Write the name, place, and reason first to make posting faster.",
+    "URL and author name are optional. You can keep them empty.",
+    config.submitFormUrl ? "Copy the draft, then open the form in a new tab." : "Set the submit form URL to turn this into a full posting flow."
+  ];
+
+  elements.submitAssistTips.innerHTML = "";
+  for (const tip of tips) {
+    const item = document.createElement("p");
+    item.className = "submit-assist__tip";
+    item.textContent = tip;
+    elements.submitAssistTips.appendChild(item);
+  }
+}
+
+function hydrateDraftFromStorage() {
+  try {
+    const raw = window.localStorage.getItem(draftStorageKey);
+    if (!raw) {
+      return;
+    }
+
+    const parsed = JSON.parse(raw);
+    state.draft = {
+      ...state.draft,
+      ...pickDraftFields(parsed)
+    };
+  } catch (error) {
+    console.warn("Failed to restore draft.", error);
+  }
+}
+
+function populateDraftCategoryOptions() {
+  if (!elements.draftCategory) {
+    return;
+  }
+
+  elements.draftCategory.innerHTML = "";
+
+  for (const category of state.categories) {
+    const option = document.createElement("option");
+    option.value = category.id;
+    option.textContent = category.label;
+    elements.draftCategory.appendChild(option);
+  }
+
+  if (!state.draft.category || !state.categories.some((category) => category.id === state.draft.category)) {
+    state.draft.category = state.categories[0]?.id || "other";
+  }
+}
+
+function syncDraftInputs() {
+  if (elements.draftName) elements.draftName.value = state.draft.name;
+  if (elements.draftCategory) elements.draftCategory.value = state.draft.category;
+  if (elements.draftAddress) elements.draftAddress.value = state.draft.address;
+  if (elements.draftDescription) elements.draftDescription.value = state.draft.description;
+  if (elements.draftReason) elements.draftReason.value = state.draft.reason;
+  if (elements.draftUrl) elements.draftUrl.value = state.draft.url;
+  if (elements.draftAuthor) elements.draftAuthor.value = state.draft.author;
+}
+
+function syncDraftUi() {
+  persistDraft();
+
+  if (elements.draftPreview) {
+    elements.draftPreview.value = buildDraftPreview();
+  }
+
+  if (elements.draftCopyStatus) {
+    elements.draftCopyStatus.textContent = buildDraftStatus();
+  }
+
+  renderDraftReadiness();
+}
+
+function persistDraft() {
+  try {
+    window.localStorage.setItem(draftStorageKey, JSON.stringify(state.draft));
+  } catch (error) {
+    console.warn("Failed to persist draft.", error);
+  }
+}
+
+function buildDraftPreview() {
+  const categoryLabel = getCategoryLabel(state.draft.category);
+  const lines = [
+    `Spot Name: ${state.draft.name || "-"}`,
+    `Category: ${categoryLabel || "-"}`,
+    `Address: ${state.draft.address || "-"}`,
+    `Highlights: ${state.draft.description || "-"}`,
+    `Reason / Experience: ${state.draft.reason || "-"}`,
+    `Reference URL: ${state.draft.url || "-"}`,
+    `Author Name: ${state.draft.author || "-"}`
+  ];
+
+  return lines.join("\n");
+}
+
+function buildDraftStatus() {
+  const requiredCount = getDraftChecklist().filter((item) => item.done).length;
+
+  if (requiredCount === 3) {
+    return "The draft is ready. Copy it and paste it into the form.";
+  }
+
+  return "Fill in the spot name, address, and recommendation details for an easier post.";
+}
+
+async function copyDraftPreview() {
+  if (!elements.draftPreview?.value) {
+    return;
+  }
+
+  try {
+    await navigator.clipboard.writeText(elements.draftPreview.value);
+    if (elements.draftCopyStatus) {
+      elements.draftCopyStatus.textContent = "Draft copied. You can paste it into the form.";
+    }
+  } catch (error) {
+    console.error("Copy failed.", error);
+    if (elements.draftCopyStatus) {
+      elements.draftCopyStatus.textContent = "Copy failed. Please select and copy the preview text manually.";
+    }
+  }
+}
+
+async function handleCopyAndOpenForm(event) {
+  if (!config.submitFormUrl) {
+    event.preventDefault();
+    return;
+  }
+
+  await copyDraftPreview();
+}
+
+function clearDraft() {
+  state.draft = {
+    name: "",
+    category: state.categories[0]?.id || "other",
+    address: "",
+    description: "",
+    reason: "",
+    url: "",
+    author: ""
+  };
+
+  syncDraftInputs();
+  syncDraftUi();
+}
+
+function pickDraftFields(value) {
+  return {
+    name: String(value?.name || ""),
+    category: String(value?.category || ""),
+    address: String(value?.address || ""),
+    description: String(value?.description || ""),
+    reason: String(value?.reason || ""),
+    url: String(value?.url || ""),
+    author: String(value?.author || "")
+  };
+}
+
+function getDraftChecklist() {
+  return [
+    { key: "name", label: "Spot Name", done: Boolean(state.draft.name.trim()) },
+    { key: "address", label: "Address", done: Boolean(state.draft.address.trim()) },
+    { key: "description", label: "Highlights or Reason", done: Boolean((state.draft.description || state.draft.reason).trim()) }
+  ];
+}
+
+function renderDraftReadiness() {
+  const checklist = getDraftChecklist();
+  const doneCount = checklist.filter((item) => item.done).length;
+
+  if (elements.draftProgressText) {
+    elements.draftProgressText.textContent = `${doneCount} / ${checklist.length} required items ready`;
+  }
+
+  if (elements.draftRequiredList) {
+    elements.draftRequiredList.innerHTML = "";
+    for (const item of checklist) {
+      const row = document.createElement("div");
+      row.className = `submit-progress__item${item.done ? " is-done" : " is-pending"}`;
+      row.textContent = item.done ? `${item.label} ready` : `${item.label} needed`;
+      elements.draftRequiredList.appendChild(row);
+    }
+  }
+
+  elements.fieldNameWrap?.classList.toggle("is-missing", !checklist[0].done);
+  elements.fieldAddressWrap?.classList.toggle("is-missing", !checklist[1].done);
+  elements.fieldDescriptionWrap?.classList.toggle("is-missing", !checklist[2].done);
 }
 
 function renderCategoryFilters() {
@@ -219,6 +485,7 @@ function normalizeSpots(spots) {
 
   return spots
     .filter((spot) => typeof spot === "object" && spot !== null)
+    .filter((spot) => !spot.hidden)
     .map((spot, index) => ({
       id: String(spot.id || `spot-${index + 1}`),
       name: String(spot.name || "名称未設定"),
@@ -229,9 +496,20 @@ function normalizeSpots(spots) {
       reason: String(spot.reason || ""),
       author: String(spot.author || ""),
       url: String(spot.url || ""),
+      referenceUrls: normalizeReferenceUrls(spot.referenceUrls, spot.url),
       photos: normalizePhotos(spot.photos),
+      submissions: normalizeSubmissions(spot),
       lat: Number(spot.lat),
       lng: Number(spot.lng)
+    }))
+    .map((spot) => ({
+      ...spot,
+      submissionCount: spot.submissions.length,
+      photos: mergePhotos(spot.photos, spot.submissions.flatMap((submission) => submission.photos)),
+      referenceUrls: normalizeReferenceUrls(
+        spot.referenceUrls.concat(spot.submissions.flatMap((submission) => submission.referenceUrls)),
+        spot.url
+      )
     }))
     .filter((spot) => Number.isFinite(spot.lat) && Number.isFinite(spot.lng));
 }
@@ -249,6 +527,73 @@ function normalizePhotos(photos) {
       caption: String(photo.caption || "")
     }))
     .filter((photo) => photo.src);
+}
+
+function normalizeReferenceUrls(referenceUrls, primaryUrl) {
+  const values = [];
+
+  if (Array.isArray(referenceUrls)) {
+    values.push(...referenceUrls);
+  }
+
+  if (primaryUrl) {
+    values.unshift(primaryUrl);
+  }
+
+  return [...new Set(values.map((value) => String(value || "").trim()).filter(Boolean))];
+}
+
+function normalizeSubmissions(spot) {
+  const raw = Array.isArray(spot?.submissions) && spot.submissions.length
+    ? spot.submissions
+    : [createFallbackSubmission(spot)];
+
+  return raw
+    .filter((submission) => submission && typeof submission === "object")
+    .map((submission, index) => ({
+      id: `${String(spot.id || "spot")}-submission-${index + 1}`,
+      description: String(submission.description || ""),
+      reason: String(submission.reason || ""),
+      author: String(submission.author || ""),
+      submittedAt: String(submission.submittedAt || ""),
+      referenceUrls: normalizeReferenceUrls(submission.referenceUrls, submission.url),
+      photos: normalizePhotos(submission.photos)
+    }))
+    .filter((submission) => {
+      return Boolean(
+        submission.description ||
+        submission.reason ||
+        submission.author ||
+        submission.referenceUrls.length ||
+        submission.photos.length
+      );
+    });
+}
+
+function createFallbackSubmission(spot) {
+  return {
+    description: String(spot?.description || ""),
+    reason: String(spot?.reason || ""),
+    author: String(spot?.author || ""),
+    submittedAt: "",
+    referenceUrls: normalizeReferenceUrls(spot?.referenceUrls, spot?.url),
+    photos: normalizePhotos(spot?.photos)
+  };
+}
+
+function mergePhotos(...groups) {
+  const seen = new Set();
+  const merged = [];
+
+  groups.flat().forEach((photo) => {
+    if (!photo?.src || seen.has(photo.src)) {
+      return;
+    }
+    seen.add(photo.src);
+    merged.push(photo);
+  });
+
+  return merged;
 }
 
 function buildCategories(spots) {
@@ -282,7 +627,10 @@ function getVisibleSpots() {
       return true;
     }
 
-    const haystack = `${spot.name} ${spot.description} ${spot.address} ${spot.reason} ${spot.categoryLabel}`.toLowerCase();
+    const submissionText = spot.submissions
+      .map((submission) => `${submission.description} ${submission.reason} ${submission.author}`)
+      .join(" ");
+    const haystack = `${spot.name} ${spot.description} ${spot.address} ${spot.reason} ${spot.categoryLabel} ${submissionText}`.toLowerCase();
     return haystack.includes(state.searchText);
   });
 }
@@ -344,6 +692,10 @@ function renderList() {
     address.className = "spot-item__address";
     address.textContent = spot.address || "住所未登録";
 
+    if (spot.submissionCount > 1) {
+      address.textContent = `${address.textContent} ・ ${spot.submissionCount}件の投稿`;
+    }
+
     button.append(top, body, address);
     fragment.appendChild(button);
   }
@@ -385,19 +737,185 @@ function renderDetail() {
   meta.appendChild(createMetaLine("おすすめ", spot.reason || "未登録"));
   meta.appendChild(createMetaLine("投稿者", spot.author || "未登録"));
 
-  if (spot.url) {
-    const link = document.createElement("a");
-    link.href = spot.url;
-    link.target = "_blank";
-    link.rel = "noreferrer noopener";
-    link.className = "detail-card__link";
-    link.textContent = spot.url;
-    meta.appendChild(createMetaLine("URL", link));
+  if (spot.referenceUrls.length) {
+    meta.appendChild(createMetaLine("URL", createReferenceLinks(spot.referenceUrls)));
   }
 
   stack.appendChild(meta);
+  if (spot.submissions.length) {
+    stack.appendChild(createReviewTimelineSection(spot));
+  }
   elements.detailCard.innerHTML = "";
   elements.detailCard.appendChild(stack);
+}
+
+function createReviewTimelineSection(spot) {
+  const section = document.createElement("section");
+  section.className = "detail-card__submissions";
+
+  const heading = document.createElement("h4");
+  heading.className = "detail-card__submissions-title";
+  heading.textContent = spot.submissions.length > 1 ? `みんなの投稿 (${spot.submissions.length}件)` : "投稿内容";
+  section.appendChild(heading);
+
+  const list = document.createElement("div");
+  list.className = "detail-card__submission-list";
+
+  getSortedSubmissions(spot.submissions).forEach((submission, index) => {
+    const card = document.createElement("article");
+    card.className = "detail-card__submission";
+
+    const top = document.createElement("div");
+    top.className = "detail-card__submission-top";
+
+    const label = document.createElement("strong");
+    label.textContent = `口コミ ${index + 1}`;
+    top.appendChild(label);
+
+    const bylineParts = [];
+    if (submission.submittedAt) {
+      bylineParts.push(formatSubmissionDateTime(submission.submittedAt));
+    }
+    if (submission.author) {
+      bylineParts.push(submission.author);
+    }
+
+    if (bylineParts.length) {
+      const byline = document.createElement("span");
+      byline.className = "detail-card__submission-byline";
+      byline.textContent = bylineParts.join(" / ");
+      top.appendChild(byline);
+    }
+
+    card.appendChild(top);
+
+    if (submission.description) {
+      const description = document.createElement("p");
+      description.className = "detail-card__submission-description";
+      description.textContent = submission.description;
+      card.appendChild(description);
+    }
+
+    if (submission.reason) {
+      const quote = document.createElement("blockquote");
+      quote.className = "detail-card__submission-quote";
+      quote.textContent = submission.reason;
+      card.appendChild(quote);
+    }
+
+    if (submission.referenceUrls.length) {
+      card.appendChild(createMetaLine("参考URL", createReferenceLinks(submission.referenceUrls)));
+    }
+
+    list.appendChild(card);
+  });
+
+  section.appendChild(list);
+  return section;
+}
+
+function createSubmissionSection(spot) {
+  const section = document.createElement("section");
+  section.className = "detail-card__submissions";
+
+  const heading = document.createElement("h4");
+  heading.className = "detail-card__submissions-title";
+  heading.textContent = spot.submissions.length > 1 ? `みんなの投稿 (${spot.submissions.length}件)` : "投稿内容";
+  section.appendChild(heading);
+
+  const list = document.createElement("div");
+  list.className = "detail-card__submission-list";
+
+  spot.submissions.forEach((submission, index) => {
+    const card = document.createElement("article");
+    card.className = "detail-card__submission";
+
+    const top = document.createElement("div");
+    top.className = "detail-card__submission-top";
+
+    const label = document.createElement("strong");
+    label.textContent = `投稿 ${index + 1}`;
+    top.appendChild(label);
+
+    const metaParts = [];
+    if (submission.author) {
+      metaParts.push(submission.author);
+    }
+    if (submission.submittedAt) {
+      metaParts.push(formatSubmissionDate(submission.submittedAt));
+    }
+    if (metaParts.length) {
+      const byline = document.createElement("span");
+      byline.className = "detail-card__submission-byline";
+      byline.textContent = metaParts.join(" / ");
+      top.appendChild(byline);
+    }
+
+    card.appendChild(top);
+
+    if (submission.description) {
+      const description = document.createElement("p");
+      description.textContent = submission.description;
+      card.appendChild(description);
+    }
+
+    if (submission.reason) {
+      const reason = document.createElement("p");
+      reason.className = "detail-card__submission-reason";
+      reason.textContent = submission.reason;
+      card.appendChild(reason);
+    }
+
+    if (submission.referenceUrls.length) {
+      card.appendChild(createMetaLine("参考URL", createReferenceLinks(submission.referenceUrls)));
+    }
+
+    list.appendChild(card);
+  });
+
+  section.appendChild(list);
+  return section;
+}
+
+function formatSubmissionDate(value) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return value;
+  }
+
+  return new Intl.DateTimeFormat("ja-JP", {
+    year: "numeric",
+    month: "short",
+    day: "numeric"
+  }).format(date);
+}
+
+function formatSubmissionDateTime(value) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return value;
+  }
+
+  return new Intl.DateTimeFormat("ja-JP", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit"
+  }).format(date);
+}
+
+function getSortedSubmissions(submissions) {
+  return [...submissions].sort((left, right) => {
+    const leftTime = parseSubmissionTime(left?.submittedAt);
+    const rightTime = parseSubmissionTime(right?.submittedAt);
+    return rightTime - leftTime;
+  });
+}
+
+function parseSubmissionTime(value) {
+  const time = new Date(value).getTime();
+  return Number.isNaN(time) ? 0 : time;
 }
 
 function createCarousel(spot) {
@@ -490,6 +1008,23 @@ function createMetaLine(label, value) {
 
   line.append(labelElement, valueElement);
   return line;
+}
+
+function createReferenceLinks(urls) {
+  const wrapper = document.createElement("div");
+  wrapper.className = "detail-card__links";
+
+  urls.forEach((url) => {
+    const link = document.createElement("a");
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noreferrer noopener";
+    link.className = "detail-card__link";
+    link.textContent = url;
+    wrapper.appendChild(link);
+  });
+
+  return wrapper;
 }
 
 function createBadge(categoryId) {
