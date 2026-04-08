@@ -303,5 +303,27 @@
     "hiddenReason": "",
     "updateSource": "",
     "photoPreference": ""
+  },
+  {
+    "id": "1-3",
+    "name": "1",
+    "category": "shopping",
+    "categoryLabel": "ショッピング",
+    "description": "",
+    "address": "千葉県印西市",
+    "reason": "",
+    "author": "１",
+    "url": "",
+    "referenceUrls": [],
+    "photos": [],
+    "hidden": false,
+    "lat": 35.8326275,
+    "lng": 140.1456967,
+    "createdAt": "2026-04-08T07:54:50.000Z",
+    "updatedAt": "2026-04-08T07:54:50.000Z",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": ""
   }
 ]
