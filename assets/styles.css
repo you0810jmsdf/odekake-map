@@ -181,6 +181,7 @@ body {
   display: grid;
   grid-template-columns: minmax(0, 1.65fr) minmax(320px, 0.9fr);
   gap: 20px;
+  align-items: start;
 }
 
 .panel {
@@ -191,6 +192,7 @@ body {
 .panel--map {
   display: grid;
   gap: 18px;
+  align-content: start;
 }
 
 .panel__header {
@@ -551,17 +553,18 @@ body.is-embed .app-shell {
 }
 
 body.is-embed .hero {
-  padding: 18px 20px;
+  padding: 10px 14px;
   border-radius: 0 0 24px 24px;
+  min-height: 0;
 }
 
-body.is-embed .hero h1 {
-  font-size: clamp(1.5rem, 3.6vw, 2.6rem);
+body.is-embed .hero__copy,
+body.is-embed .status-panel {
+  display: none;
 }
 
-body.is-embed .hero__lead {
-  margin-top: 10px;
-  font-size: 0.95rem;
+body.is-embed .hero__actions {
+  justify-content: flex-start;
 }
 
 body.is-embed .panel {
