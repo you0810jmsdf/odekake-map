@@ -347,5 +347,33 @@
     "hiddenReason": "",
     "updateSource": "",
     "photoPreference": ""
+  },
+  {
+    "id": "spot-2",
+    "name": "３",
+    "category": "shopping",
+    "categoryLabel": "ショッピング",
+    "description": "",
+    "address": "千葉県印西市高花6-200-15",
+    "reason": "",
+    "author": "３",
+    "url": "",
+    "referenceUrls": [],
+    "photos": [
+      {
+        "src": "https://drive.google.com/thumbnail?id=1EKZ4zFYicllMMqjL3YKNmzSFVP7xu4Hy&sz=w1600",
+        "alt": "３ の写真 1",
+        "caption": "３ の写真 1"
+      }
+    ],
+    "hidden": false,
+    "lat": 35.7920638,
+    "lng": 140.1370994,
+    "createdAt": "2026-04-08T08:04:28.000Z",
+    "updatedAt": "2026-04-08T08:04:28.000Z",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": ""
   }
 ]
