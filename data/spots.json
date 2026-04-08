@@ -463,5 +463,33 @@
     "hiddenReason": "",
     "updateSource": "",
     "photoPreference": ""
+  },
+  {
+    "id": "n-s-factory-3",
+    "name": "N's factory",
+    "category": "shopping",
+    "categoryLabel": "ショッピング",
+    "description": "テスト２",
+    "address": "千葉県印西市高花6-200-15",
+    "reason": "テスト２",
+    "author": "ちっこ",
+    "url": "",
+    "referenceUrls": [],
+    "photos": [
+      {
+        "src": "https://drive.google.com/thumbnail?id=1x5nfoElCFiPq8Kk2z2g2QSZzLTn81tka&sz=w1600",
+        "alt": "N's factory の写真 1",
+        "caption": "N's factory の写真 1"
+      }
+    ],
+    "hidden": false,
+    "lat": 35.7920638,
+    "lng": 140.1370994,
+    "createdAt": "2026-04-08T09:19:38.000Z",
+    "updatedAt": "2026-04-08T09:19:38.000Z",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": ""
   }
 ]
