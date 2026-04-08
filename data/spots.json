@@ -779,5 +779,44 @@
         "photos": []
       }
     ]
+  },
+  {
+    "id": "そば処さつき",
+    "name": "そば処さつき",
+    "category": "gourmet",
+    "categoryLabel": "グルメ",
+    "description": "オープンと同時に\n地元の方々で混み合う人気な蕎麦屋",
+    "address": "千葉県印西市大森4450-57",
+    "reason": "ここ並盛でも400gとボリューム満点なので大盛りを頼む際はご注意を！\n\nセルフサービスで薬味や天かす、わさびなど自由に追加出来るのも嬉しい。\n\nラー油蕎麦も人気みたいなので、\nまた寄った際にはレビーしたいと思います♪\n\n～頼んだ品～\n・キロ蕎麦 1,220円\n・天ぷら7種 700円くらい",
+    "author": "chiba.gourmet2021から掲載",
+    "url": "https://www.instagram.com/reel/DU2b3V6kkSA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "referenceUrls": [
+      "https://www.instagram.com/reel/DU2b3V6kkSA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+    ],
+    "photos": [],
+    "hidden": false,
+    "lat": 35.837284,
+    "lng": 140.140074,
+    "createdAt": "2026-04-08T12:05:12.000Z",
+    "updatedAt": "2026-04-08T12:05:12.000Z",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "オープンと同時に\n地元の方々で混み合う人気な蕎麦屋",
+        "reason": "ここ並盛でも400gとボリューム満点なので大盛りを頼む際はご注意を！\n\nセルフサービスで薬味や天かす、わさびなど自由に追加出来るのも嬉しい。\n\nラー油蕎麦も人気みたいなので、\nまた寄った際にはレビーしたいと思います♪\n\n～頼んだ品～\n・キロ蕎麦 1,220円\n・天ぷら7種 700円くらい",
+        "author": "chiba.gourmet2021から掲載",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-08T12:05:12.000Z",
+        "url": "https://www.instagram.com/reel/DU2b3V6kkSA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+        "referenceUrls": [
+          "https://www.instagram.com/reel/DU2b3V6kkSA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+        ],
+        "photos": []
+      }
+    ]
   }
 ]
