@@ -32,7 +32,33 @@
     "hiddenAt": "",
     "hiddenReason": "",
     "updateSource": "",
-    "photoPreference": ""
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "買い物だけでなく食事やイベントも楽しめる大型商業施設です。",
+        "reason": "家族でも一人でも立ち寄りやすく、雨の日にも過ごしやすいです。",
+        "author": "COCoLa事務局",
+        "contact": "",
+        "source": "",
+        "submittedAt": "",
+        "url": "https://chibanewtown-aeonmall.com/",
+        "referenceUrls": [
+          "https://chibanewtown-aeonmall.com/"
+        ],
+        "photos": [
+          {
+            "src": "https://images.unsplash.com/photo-1481437156560-3205f6a55735?auto=format&fit=crop&w=1200&q=80",
+            "alt": "ショッピングモールの外観",
+            "caption": "大型商業施設の雰囲気が伝わるイメージ写真"
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=1200&q=80",
+            "alt": "買い物を楽しむ人の様子",
+            "caption": "週末のおでかけ先のイメージ"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "big-hop",
@@ -62,7 +88,28 @@
     "hiddenAt": "",
     "hiddenReason": "",
     "updateSource": "",
-    "photoPreference": ""
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "アウトレット感覚で散策できる開放的な商業施設です。",
+        "reason": "駅近で立ち寄りやすく、休日のおでかけ先として使いやすいです。",
+        "author": "COCoLa事務局",
+        "contact": "",
+        "source": "",
+        "submittedAt": "",
+        "url": "https://www.bighop.jp/",
+        "referenceUrls": [
+          "https://www.bighop.jp/"
+        ],
+        "photos": [
+          {
+            "src": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80",
+            "alt": "屋外型モールのイメージ",
+            "caption": "開放感のあるモールイメージ"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "makinohara-park",
@@ -90,7 +137,26 @@
     "hiddenAt": "",
     "hiddenReason": "",
     "updateSource": "",
-    "photoPreference": ""
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "芝生と遊具があり、季節の移ろいを感じながらゆったり過ごせる公園です。",
+        "reason": "子ども連れにも散歩にも向いていて、地域の雰囲気を感じられます。",
+        "author": "COCoLa事務局",
+        "contact": "",
+        "source": "",
+        "submittedAt": "",
+        "url": "",
+        "referenceUrls": [],
+        "photos": [
+          {
+            "src": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+            "alt": "公園と緑地の風景",
+            "caption": "散歩やピクニックに向いた景色のイメージ"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "inzai-gourmet",
@@ -118,7 +184,26 @@
     "hiddenAt": "",
     "hiddenReason": "",
     "updateSource": "",
-    "photoPreference": ""
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "投稿例として配置しているサンプルスポットです。実運用時は正式データへ差し替えてください。",
+        "reason": "待ち合わせにも使いやすく、雰囲気の良い一杯を楽しめます。",
+        "author": "サンプル投稿",
+        "contact": "",
+        "source": "",
+        "submittedAt": "",
+        "url": "",
+        "referenceUrls": [],
+        "photos": [
+          {
+            "src": "https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=80",
+            "alt": "カフェのドリンク写真",
+            "caption": "落ち着いた時間を過ごせるカフェのイメージ"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "local-spot",
@@ -146,7 +231,26 @@
     "hiddenAt": "",
     "hiddenReason": "",
     "updateSource": "",
-    "photoPreference": ""
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "文化施設や景観スポットなど、今後カテゴリ拡張しやすいようフォームで新カテゴリを扱えるようにしています。",
+        "reason": "将来の横展開を見据えたサンプルデータです。",
+        "author": "COCoLa事務局",
+        "contact": "",
+        "source": "",
+        "submittedAt": "",
+        "url": "",
+        "referenceUrls": [],
+        "photos": [
+          {
+            "src": "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1200&q=80",
+            "alt": "アート展示のイメージ",
+            "caption": "フォームで追加された新カテゴリも表示可能です"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "test",
@@ -168,7 +272,20 @@
     "hiddenAt": "",
     "hiddenReason": "",
     "updateSource": "",
-    "photoPreference": "すでに共有方法が分かる"
+    "photoPreference": "すでに共有方法が分かる",
+    "submissions": [
+      {
+        "description": "1",
+        "reason": "2",
+        "author": "2",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-08T05:51:57.000Z",
+        "url": "",
+        "referenceUrls": [],
+        "photos": []
+      }
+    ]
   },
   {
     "id": "a",
@@ -181,16 +298,52 @@
     "author": "s",
     "url": "",
     "referenceUrls": [],
-    "photos": [],
+    "photos": [
+      {
+        "src": "https://drive.google.com/thumbnail?id=1VWUWB8F-Sl7f0kZ8i1IA3zMVS9tZ2PSK&sz=w1600",
+        "alt": "a の写真 1",
+        "caption": "a の写真 1"
+      }
+    ],
     "hidden": false,
     "lat": 35.7920638,
     "lng": 140.1370994,
     "createdAt": "2026-04-08T06:00:13.000Z",
-    "updatedAt": "2026-04-08T06:10:51.000Z",
+    "updatedAt": "2026-04-08T08:27:50.000Z",
     "hiddenAt": "",
     "hiddenReason": "",
     "updateSource": "",
-    "photoPreference": "すでに共有方法が分かる"
+    "photoPreference": "すでに共有方法が分かる",
+    "submissions": [
+      {
+        "description": "確認テスト 2026-04-08",
+        "reason": "s",
+        "author": "s",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-08T06:00:13.000Z",
+        "url": "",
+        "referenceUrls": [],
+        "photos": []
+      },
+      {
+        "description": "",
+        "reason": "",
+        "author": "",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-08T08:27:50.000Z",
+        "url": "",
+        "referenceUrls": [],
+        "photos": [
+          {
+            "src": "https://drive.google.com/thumbnail?id=1VWUWB8F-Sl7f0kZ8i1IA3zMVS9tZ2PSK&sz=w1600",
+            "alt": "a の写真 1",
+            "caption": "a の写真 1"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "n-s-factory",
@@ -214,7 +367,22 @@
     "hiddenAt": "",
     "hiddenReason": "",
     "updateSource": "",
-    "photoPreference": ""
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "革工房",
+        "reason": "テスト",
+        "author": "テスト",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-08T06:24:10.000Z",
+        "url": "https://sites.google.com/view/ns-factory/home",
+        "referenceUrls": [
+          "https://sites.google.com/view/ns-factory/home"
+        ],
+        "photos": []
+      }
+    ]
   },
   {
     "id": "1",
@@ -222,7 +390,7 @@
     "category": "shopping",
     "categoryLabel": "ショッピング",
     "description": "1",
-    "address": "千葉県印西市高花6-200-5",
+    "address": "千葉県印西市高花6-200-15",
     "reason": "1",
     "author": "1",
     "url": "",
@@ -232,11 +400,35 @@
     "lat": 35.7917689,
     "lng": 140.1381213,
     "createdAt": "2026-04-08T06:41:49.000Z",
-    "updatedAt": "2026-04-08T06:41:49.000Z",
+    "updatedAt": "2026-04-08T07:50:49.000Z",
     "hiddenAt": "",
     "hiddenReason": "",
     "updateSource": "",
-    "photoPreference": ""
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "1",
+        "reason": "1",
+        "author": "1",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-08T06:41:49.000Z",
+        "url": "",
+        "referenceUrls": [],
+        "photos": []
+      },
+      {
+        "description": "1",
+        "reason": "",
+        "author": "1",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-08T07:50:49.000Z",
+        "url": "",
+        "referenceUrls": [],
+        "photos": []
+      }
+    ]
   },
   {
     "id": "222222222222",
@@ -258,7 +450,20 @@
     "hiddenAt": "",
     "hiddenReason": "",
     "updateSource": "",
-    "photoPreference": ""
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "",
+        "reason": "",
+        "author": "2222",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-08T06:59:55.000Z",
+        "url": "",
+        "referenceUrls": [],
+        "photos": []
+      }
+    ]
   },
   {
     "id": "0",
@@ -280,29 +485,20 @@
     "hiddenAt": "",
     "hiddenReason": "",
     "updateSource": "",
-    "photoPreference": ""
-  },
-  {
-    "id": "1-2",
-    "name": "1",
-    "category": "shopping",
-    "categoryLabel": "ショッピング",
-    "description": "1",
-    "address": "千葉県印西市高花6-200-15",
-    "reason": "",
-    "author": "1",
-    "url": "",
-    "referenceUrls": [],
-    "photos": [],
-    "hidden": false,
-    "lat": 35.7920638,
-    "lng": 140.1370994,
-    "createdAt": "2026-04-08T07:50:49.000Z",
-    "updatedAt": "2026-04-08T07:50:49.000Z",
-    "hiddenAt": "",
-    "hiddenReason": "",
-    "updateSource": "",
-    "photoPreference": ""
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "",
+        "reason": "",
+        "author": "111111111111111111111",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-08T07:04:17.000Z",
+        "url": "",
+        "referenceUrls": [],
+        "photos": []
+      }
+    ]
   },
   {
     "id": "1-3",
@@ -324,7 +520,20 @@
     "hiddenAt": "",
     "hiddenReason": "",
     "updateSource": "",
-    "photoPreference": ""
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "",
+        "reason": "",
+        "author": "１",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-08T07:54:50.000Z",
+        "url": "",
+        "referenceUrls": [],
+        "photos": []
+      }
+    ]
   },
   {
     "id": "spot",
@@ -346,7 +555,20 @@
     "hiddenAt": "",
     "hiddenReason": "",
     "updateSource": "",
-    "photoPreference": ""
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "",
+        "reason": "",
+        "author": "２",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-08T07:57:54.000Z",
+        "url": "",
+        "referenceUrls": [],
+        "photos": []
+      }
+    ]
   },
   {
     "id": "spot-2",
@@ -374,35 +596,26 @@
     "hiddenAt": "",
     "hiddenReason": "",
     "updateSource": "",
-    "photoPreference": ""
-  },
-  {
-    "id": "a-2",
-    "name": "a",
-    "category": "shopping",
-    "categoryLabel": "ショッピング",
-    "description": "",
-    "address": "千葉県印西市高花6-200-1",
-    "reason": "",
-    "author": "",
-    "url": "",
-    "referenceUrls": [],
-    "photos": [
+    "photoPreference": "",
+    "submissions": [
       {
-        "src": "https://drive.google.com/thumbnail?id=1VWUWB8F-Sl7f0kZ8i1IA3zMVS9tZ2PSK&sz=w1600",
-        "alt": "a の写真 1",
-        "caption": "a の写真 1"
+        "description": "",
+        "reason": "",
+        "author": "３",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-08T08:04:28.000Z",
+        "url": "",
+        "referenceUrls": [],
+        "photos": [
+          {
+            "src": "https://drive.google.com/thumbnail?id=1EKZ4zFYicllMMqjL3YKNmzSFVP7xu4Hy&sz=w1600",
+            "alt": "３ の写真 1",
+            "caption": "３ の写真 1"
+          }
+        ]
       }
-    ],
-    "hidden": false,
-    "lat": 35.791664,
-    "lng": 140.1373196,
-    "createdAt": "2026-04-08T08:27:50.000Z",
-    "updatedAt": "2026-04-08T08:27:50.000Z",
-    "hiddenAt": "",
-    "hiddenReason": "",
-    "updateSource": "",
-    "photoPreference": ""
+    ]
   },
   {
     "id": "吉高の大桜",
@@ -432,7 +645,28 @@
     "hiddenAt": "",
     "hiddenReason": "",
     "updateSource": "",
-    "photoPreference": ""
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "千葉県印西市印旛地区吉高にある印西市指定天然記念物の一本桜です。\n\n樹齢が約400年を超えるともいわれる大きな山桜です。\n※推定樹齢は見解が変わるため、ここでは約300年から400年としています。\n\n樹高が約10m、枝を約26ｍほども広げる「吉高の大桜」は、印西市の天然記念物に指定されています。\n遠くから見るとこんもりとしたピンク色の山のような姿と、周辺の草花、畑との色合いがとても美しいです。\n吉高の大桜はソメイヨシノより1週間～2週間ほど遅く開花するヤマザクラですが、満開時期は2～3日間しかありません。\nほのぼのした畑の中を歩くと、急に大きな桜が姿を現し、歩いてきた疲れを癒してくれますよ。",
+        "reason": "推定樹齢400年を超える山桜の一本桜です。\n 印西市の指定天然記念物。\n 年々有名になり、シンガーソングライター森山直太朗さんが吉高の大桜前で、ライブで「さくら」を歌ったことがあります。",
+        "author": "",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-08T08:35:28.000Z",
+        "url": "https://inzaiparque.com/inzai-park-yoshitaka/",
+        "referenceUrls": [
+          "https://inzaiparque.com/inzai-park-yoshitaka/"
+        ],
+        "photos": [
+          {
+            "src": "https://drive.google.com/thumbnail?id=1A8Pyf_Ifj1qiJv8BTYVio1fbDdydOiFB&sz=w1600",
+            "alt": "吉高の大桜 の写真 1",
+            "caption": "吉高の大桜 の写真 1"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "n-s-factory-2",
@@ -452,30 +686,7 @@
         "src": "https://drive.google.com/thumbnail?id=1gPRWkimhmEFSWbryRwd2AIK06ZkmAtjA&sz=w1600",
         "alt": "N's factory の写真 1",
         "caption": "N's factory の写真 1"
-      }
-    ],
-    "hidden": false,
-    "lat": 35.7920638,
-    "lng": 140.1370994,
-    "createdAt": "2026-04-08T09:18:26.000Z",
-    "updatedAt": "2026-04-08T09:18:26.000Z",
-    "hiddenAt": "",
-    "hiddenReason": "",
-    "updateSource": "",
-    "photoPreference": ""
-  },
-  {
-    "id": "n-s-factory-3",
-    "name": "N's factory",
-    "category": "shopping",
-    "categoryLabel": "ショッピング",
-    "description": "テスト２",
-    "address": "千葉県印西市高花6-200-15",
-    "reason": "テスト２",
-    "author": "ちっこ",
-    "url": "",
-    "referenceUrls": [],
-    "photos": [
+      },
       {
         "src": "https://drive.google.com/thumbnail?id=1x5nfoElCFiPq8Kk2z2g2QSZzLTn81tka&sz=w1600",
         "alt": "N's factory の写真 1",
@@ -485,11 +696,49 @@
     "hidden": false,
     "lat": 35.7920638,
     "lng": 140.1370994,
-    "createdAt": "2026-04-08T09:19:38.000Z",
+    "createdAt": "2026-04-08T09:18:26.000Z",
     "updatedAt": "2026-04-08T09:19:38.000Z",
     "hiddenAt": "",
     "hiddenReason": "",
     "updateSource": "",
-    "photoPreference": ""
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "テスト１",
+        "reason": "テスト１",
+        "author": "ゆうさん",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-08T09:18:26.000Z",
+        "url": "https://sites.google.com/view/ns-factory/home",
+        "referenceUrls": [
+          "https://sites.google.com/view/ns-factory/home"
+        ],
+        "photos": [
+          {
+            "src": "https://drive.google.com/thumbnail?id=1gPRWkimhmEFSWbryRwd2AIK06ZkmAtjA&sz=w1600",
+            "alt": "N's factory の写真 1",
+            "caption": "N's factory の写真 1"
+          }
+        ]
+      },
+      {
+        "description": "テスト２",
+        "reason": "テスト２",
+        "author": "ちっこ",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-08T09:19:38.000Z",
+        "url": "",
+        "referenceUrls": [],
+        "photos": [
+          {
+            "src": "https://drive.google.com/thumbnail?id=1x5nfoElCFiPq8Kk2z2g2QSZzLTn81tka&sz=w1600",
+            "alt": "N's factory の写真 1",
+            "caption": "N's factory の写真 1"
+          }
+        ]
+      }
+    ]
   }
 ]
