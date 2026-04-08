@@ -482,6 +482,7 @@ body {
 .panel--list {
   display: grid;
   gap: 16px;
+  align-content: start;
 }
 
 .detail-card {
