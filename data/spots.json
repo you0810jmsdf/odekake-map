@@ -3,11 +3,15 @@
     "id": "aeon-mall",
     "name": "イオンモール千葉ニュータウン",
     "category": "shopping",
+    "categoryLabel": "shopping",
     "description": "買い物だけでなく食事やイベントも楽しめる大型商業施設です。",
     "address": "千葉県印西市中央北3-2",
     "reason": "家族でも一人でも立ち寄りやすく、雨の日にも過ごしやすいです。",
     "author": "COCoLa事務局",
     "url": "https://chibanewtown-aeonmall.com/",
+    "referenceUrls": [
+      "https://chibanewtown-aeonmall.com/"
+    ],
     "photos": [
       {
         "src": "https://images.unsplash.com/photo-1481437156560-3205f6a55735?auto=format&fit=crop&w=1200&q=80",
@@ -20,18 +24,29 @@
         "caption": "週末のおでかけ先のイメージ"
       }
     ],
+    "hidden": false,
     "lat": 35.8016,
-    "lng": 140.114
+    "lng": 140.114,
+    "createdAt": "",
+    "updatedAt": "",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": ""
   },
   {
     "id": "big-hop",
     "name": "BIGHOPガーデンモール印西",
     "category": "shopping",
+    "categoryLabel": "shopping",
     "description": "アウトレット感覚で散策できる開放的な商業施設です。",
     "address": "千葉県印西市原1-2",
     "reason": "駅近で立ち寄りやすく、休日のおでかけ先として使いやすいです。",
     "author": "COCoLa事務局",
     "url": "https://www.bighop.jp/",
+    "referenceUrls": [
+      "https://www.bighop.jp/"
+    ],
     "photos": [
       {
         "src": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80",
@@ -39,18 +54,27 @@
         "caption": "開放感のあるモールイメージ"
       }
     ],
+    "hidden": false,
     "lat": 35.7932,
-    "lng": 140.1677
+    "lng": 140.1677,
+    "createdAt": "",
+    "updatedAt": "",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": ""
   },
   {
     "id": "makinohara-park",
     "name": "牧の原公園",
     "category": "park",
+    "categoryLabel": "park",
     "description": "芝生と遊具があり、季節の移ろいを感じながらゆったり過ごせる公園です。",
     "address": "千葉県印西市牧の原4丁目",
     "reason": "子ども連れにも散歩にも向いていて、地域の雰囲気を感じられます。",
     "author": "COCoLa事務局",
     "url": "",
+    "referenceUrls": [],
     "photos": [
       {
         "src": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
@@ -58,8 +82,15 @@
         "caption": "散歩やピクニックに向いた景色のイメージ"
       }
     ],
+    "hidden": false,
     "lat": 35.7982,
-    "lng": 140.1502
+    "lng": 140.1502,
+    "createdAt": "",
+    "updatedAt": "",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": ""
   },
   {
     "id": "inzai-gourmet",
@@ -71,6 +102,7 @@
     "reason": "待ち合わせにも使いやすく、雰囲気の良い一杯を楽しめます。",
     "author": "サンプル投稿",
     "url": "",
+    "referenceUrls": [],
     "photos": [
       {
         "src": "https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=80",
@@ -78,8 +110,15 @@
         "caption": "落ち着いた時間を過ごせるカフェのイメージ"
       }
     ],
+    "hidden": false,
     "lat": 35.7948,
-    "lng": 140.1121
+    "lng": 140.1121,
+    "createdAt": "",
+    "updatedAt": "",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": ""
   },
   {
     "id": "local-spot",
@@ -91,6 +130,7 @@
     "reason": "将来の横展開を見据えたサンプルデータです。",
     "author": "COCoLa事務局",
     "url": "",
+    "referenceUrls": [],
     "photos": [
       {
         "src": "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1200&q=80",
@@ -98,7 +138,36 @@
         "caption": "フォームで追加された新カテゴリも表示可能です"
       }
     ],
+    "hidden": false,
     "lat": 35.7893,
-    "lng": 140.0584
+    "lng": 140.0584,
+    "createdAt": "",
+    "updatedAt": "",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": ""
+  },
+  {
+    "id": "test",
+    "name": "test",
+    "category": "other",
+    "categoryLabel": "その他",
+    "description": "1",
+    "address": "千葉県印西市高花6-200-15",
+    "reason": "2",
+    "author": "2",
+    "url": "",
+    "referenceUrls": [],
+    "photos": [],
+    "hidden": false,
+    "lat": 35.7920638,
+    "lng": 140.1370994,
+    "createdAt": "2026-04-08T05:51:57.000Z",
+    "updatedAt": "2026-04-08T05:51:57.000Z",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": "すでに共有方法が分かる"
   }
 ]
