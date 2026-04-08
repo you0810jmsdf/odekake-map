@@ -403,5 +403,35 @@
     "hiddenReason": "",
     "updateSource": "",
     "photoPreference": ""
+  },
+  {
+    "id": "吉高の大桜",
+    "name": "吉高の大桜",
+    "category": "other",
+    "categoryLabel": "その他",
+    "description": "千葉県印西市印旛地区吉高にある印西市指定天然記念物の一本桜です。\n\n樹齢が約400年を超えるともいわれる大きな山桜です。\n※推定樹齢は見解が変わるため、ここでは約300年から400年としています。\n\n樹高が約10m、枝を約26ｍほども広げる「吉高の大桜」は、印西市の天然記念物に指定されています。\n遠くから見るとこんもりとしたピンク色の山のような姿と、周辺の草花、畑との色合いがとても美しいです。\n吉高の大桜はソメイヨシノより1週間～2週間ほど遅く開花するヤマザクラですが、満開時期は2～3日間しかありません。\nほのぼのした畑の中を歩くと、急に大きな桜が姿を現し、歩いてきた疲れを癒してくれますよ。",
+    "address": "千葉県印西市吉高930-11",
+    "reason": "推定樹齢400年を超える山桜の一本桜です。\n 印西市の指定天然記念物。\n 年々有名になり、シンガーソングライター森山直太朗さんが吉高の大桜前で、ライブで「さくら」を歌ったことがあります。",
+    "author": "",
+    "url": "https://inzaiparque.com/inzai-park-yoshitaka/",
+    "referenceUrls": [
+      "https://inzaiparque.com/inzai-park-yoshitaka/"
+    ],
+    "photos": [
+      {
+        "src": "https://drive.google.com/thumbnail?id=1A8Pyf_Ifj1qiJv8BTYVio1fbDdydOiFB&sz=w1600",
+        "alt": "吉高の大桜 の写真 1",
+        "caption": "吉高の大桜 の写真 1"
+      }
+    ],
+    "hidden": false,
+    "lat": 35.7846315,
+    "lng": 140.2321074,
+    "createdAt": "2026-04-08T08:35:28.000Z",
+    "updatedAt": "2026-04-08T08:35:28.000Z",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": ""
   }
 ]
