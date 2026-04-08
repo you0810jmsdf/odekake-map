@@ -28,6 +28,82 @@
 
     <section id="status-panel" class="status-panel" aria-label="設定状況"></section>
 
+    <section class="panel panel--submit-assist" aria-labelledby="submit-assist-title">
+      <div class="panel__header">
+        <div>
+          <p class="panel__eyebrow">Post Support</p>
+          <h2 id="submit-assist-title">Draft Helper</h2>
+        </div>
+        <p class="panel__meta">Prepare the text before opening the form</p>
+      </div>
+
+      <div class="submit-assist">
+        <div class="submit-assist__intro">
+          <p id="submit-assist-lead" class="submit-assist__lead"></p>
+          <div id="submit-assist-tips" class="submit-assist__tips" aria-live="polite"></div>
+        </div>
+
+        <div class="submit-progress" aria-live="polite">
+          <div class="submit-progress__header">
+            <p class="submit-progress__title">Ready Check</p>
+            <p id="draft-progress-text" class="submit-progress__text"></p>
+          </div>
+          <div id="draft-required-list" class="submit-progress__list"></div>
+        </div>
+
+        <div class="submit-draft">
+          <label class="field" id="field-name-wrap">
+            <span class="field__label">Spot Name</span>
+            <input id="draft-name" type="text" maxlength="80" placeholder="Name of the spot">
+          </label>
+
+          <label class="field">
+            <span class="field__label">Category</span>
+            <select id="draft-category"></select>
+          </label>
+
+          <label class="field" id="field-address-wrap">
+            <span class="field__label">Address</span>
+            <input id="draft-address" type="text" maxlength="120" placeholder="Area, street, or landmark">
+          </label>
+
+          <label class="field" id="field-description-wrap">
+            <span class="field__label">Highlights</span>
+            <textarea id="draft-description" rows="4" maxlength="240" placeholder="What is good about this place?"></textarea>
+          </label>
+
+          <label class="field">
+            <span class="field__label">Reason / Experience</span>
+            <textarea id="draft-reason" rows="4" maxlength="240" placeholder="Why do you recommend it?"></textarea>
+          </label>
+
+          <label class="field">
+            <span class="field__label">Reference URL</span>
+            <input id="draft-url" type="url" maxlength="240" placeholder="https://example.com/">
+          </label>
+
+          <label class="field">
+            <span class="field__label">Author Name</span>
+            <input id="draft-author" type="text" maxlength="60" placeholder="Optional">
+          </label>
+        </div>
+
+        <div class="submit-assist__footer">
+          <div class="submit-assist__actions">
+            <button id="copy-draft-button" class="button button--secondary" type="button">Copy Draft</button>
+            <a id="copy-open-form-link" class="button button--primary" href="#" target="_blank" rel="noreferrer noopener">Copy and Open Form</a>
+            <button id="clear-draft-button" class="button button--ghost" type="button">Clear Draft</button>
+          </div>
+          <p id="draft-copy-status" class="submit-assist__status" aria-live="polite"></p>
+        </div>
+
+        <label class="field">
+          <span class="field__label">Preview Text</span>
+          <textarea id="draft-preview" class="submit-assist__preview" rows="10" readonly></textarea>
+        </label>
+      </div>
+    </section>
+
     <main class="layout">
       <section class="panel panel--map" aria-labelledby="map-title">
         <div class="panel__header">
@@ -56,7 +132,6 @@
           <div id="map-message" class="map-message" hidden></div>
         </div>
 
-        <div class="boundary-note" id="boundary-note"></div>
       </section>
 
       <aside class="sidebar">
