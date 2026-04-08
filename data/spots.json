@@ -740,5 +740,44 @@
         ]
       }
     ]
+  },
+  {
+    "id": "茅橋らーめん",
+    "name": "茅橋らーめん",
+    "category": "gourmet",
+    "categoryLabel": "グルメ",
+    "description": "地元で人気の町中華！\n値段も比較的安くボリュームが満点。\n味も安定した旨さで老若男女が楽しめます。",
+    "address": "千葉県印西市船尾1409-2",
+    "reason": "今回は人気の五目あんかけらーめんと\n炒飯を大盛りで注文してみました。\n\nこの炒飯がまた最高で、\n子供のラーメンどんぶりをひっくり返したくらいのボリュームがあり食べ応えも抜群！\n\n味も濃すぎずあっさりし過ぎず丁度よい塩加減！ご飯もしっとりしながらも口の中でパラっとほぐれる感じで最高でした♪\n\n～頼んだ品～\n・五目あんかけらーめん 1,000円\n・チャーハン 大盛り 950円",
+    "author": "chiba.gourmet2021より掲載",
+    "url": "https://www.instagram.com/p/DWs8b5ykjHP/",
+    "referenceUrls": [
+      "https://www.instagram.com/p/DWs8b5ykjHP/"
+    ],
+    "photos": [],
+    "hidden": false,
+    "lat": 35.7925482,
+    "lng": 140.1323149,
+    "createdAt": "2026-04-08T11:59:26.000Z",
+    "updatedAt": "2026-04-08T11:59:26.000Z",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "地元で人気の町中華！\n値段も比較的安くボリュームが満点。\n味も安定した旨さで老若男女が楽しめます。",
+        "reason": "今回は人気の五目あんかけらーめんと\n炒飯を大盛りで注文してみました。\n\nこの炒飯がまた最高で、\n子供のラーメンどんぶりをひっくり返したくらいのボリュームがあり食べ応えも抜群！\n\n味も濃すぎずあっさりし過ぎず丁度よい塩加減！ご飯もしっとりしながらも口の中でパラっとほぐれる感じで最高でした♪\n\n～頼んだ品～\n・五目あんかけらーめん 1,000円\n・チャーハン 大盛り 950円",
+        "author": "chiba.gourmet2021より掲載",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-08T11:59:26.000Z",
+        "url": "https://www.instagram.com/p/DWs8b5ykjHP/",
+        "referenceUrls": [
+          "https://www.instagram.com/p/DWs8b5ykjHP/"
+        ],
+        "photos": []
+      }
+    ]
   }
 ]
