@@ -169,5 +169,27 @@
     "hiddenReason": "",
     "updateSource": "",
     "photoPreference": "すでに共有方法が分かる"
+  },
+  {
+    "id": "a",
+    "name": "a",
+    "category": "gourmet",
+    "categoryLabel": "グルメ",
+    "description": "a",
+    "address": "千葉県印西市高花6-200-15",
+    "reason": "s",
+    "author": "s",
+    "url": "",
+    "referenceUrls": [],
+    "photos": [],
+    "hidden": false,
+    "lat": 35.7920638,
+    "lng": 140.1370994,
+    "createdAt": "2026-04-08T06:00:13.000Z",
+    "updatedAt": "2026-04-08T06:00:13.000Z",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": "すでに共有方法が分かる"
   }
 ]
