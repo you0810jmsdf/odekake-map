@@ -9,6 +9,9 @@
     "reason": "おすすめ理由",
     "author": "投稿者名またはニックネーム",
     "url": "https://example.com/",
+    "referenceUrls": [
+      "https://example.com/"
+    ],
     "photos": [
       {
         "src": "https://example.com/photo.jpg",
@@ -16,6 +19,7 @@
         "caption": "写真の説明文"
       }
     ],
+    "hidden": false,
     "lat": 35.0,
     "lng": 140.0
   }
