@@ -1,0 +1,14 @@
+[
+  {
+    "id": "sample-spot",
+    "name": "スポット名",
+    "category": "shopping",
+    "description": "スポットの説明文",
+    "address": "住所",
+    "reason": "おすすめ理由",
+    "author": "投稿者名またはニックネーム",
+    "url": "https://example.com/",
+    "lat": 35.0,
+    "lng": 140.0
+  }
+]

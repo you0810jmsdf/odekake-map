@@ -1,0 +1,62 @@
+[
+  {
+    "id": "aeon-mall",
+    "name": "イオンモール千葉ニュータウン",
+    "category": "shopping",
+    "description": "買い物だけでなく食事やイベントも楽しめる大型商業施設です。",
+    "address": "千葉県印西市中央北3-2",
+    "reason": "家族でも一人でも立ち寄りやすく、雨の日にも過ごしやすいです。",
+    "author": "COCoLa事務局",
+    "url": "https://chibanewtown-aeonmall.com/",
+    "lat": 35.8016,
+    "lng": 140.114
+  },
+  {
+    "id": "big-hop",
+    "name": "BIGHOPガーデンモール印西",
+    "category": "shopping",
+    "description": "アウトレット感覚で散策できる開放的な商業施設です。",
+    "address": "千葉県印西市原1-2",
+    "reason": "駅近で立ち寄りやすく、休日のおでかけ先として使いやすいです。",
+    "author": "COCoLa事務局",
+    "url": "https://www.bighop.jp/",
+    "lat": 35.7932,
+    "lng": 140.1677
+  },
+  {
+    "id": "makinohara-park",
+    "name": "牧の原公園",
+    "category": "park",
+    "description": "芝生と遊具があり、季節の移ろいを感じながらゆったり過ごせる公園です。",
+    "address": "千葉県印西市牧の原4丁目",
+    "reason": "子ども連れにも散歩にも向いていて、地域の雰囲気を感じられます。",
+    "author": "COCoLa事務局",
+    "url": "",
+    "lat": 35.7982,
+    "lng": 140.1502
+  },
+  {
+    "id": "inzai-gourmet",
+    "name": "駅前のおすすめカフェ",
+    "category": "gourmet",
+    "description": "投稿例として配置しているサンプルスポットです。実運用時は正式データへ差し替えてください。",
+    "address": "千葉県印西市中央南1丁目",
+    "reason": "待ち合わせにも使いやすく、雰囲気の良い一杯を楽しめます。",
+    "author": "サンプル投稿",
+    "url": "",
+    "lat": 35.7948,
+    "lng": 140.1121
+  },
+  {
+    "id": "local-spot",
+    "name": "地域の小さなおすすめスポット",
+    "category": "other",
+    "description": "文化施設や景観スポットなど、今後カテゴリ拡張しやすいようその他枠も用意しています。",
+    "address": "千葉県白井市清水口1丁目",
+    "reason": "将来の横展開を見据えたサンプルデータです。",
+    "author": "COCoLa事務局",
+    "url": "",
+    "lat": 35.7893,
+    "lng": 140.0584
+  }
+]
