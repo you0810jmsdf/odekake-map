@@ -7,7 +7,6 @@ const defaultConfig = {
   fallbackCenter: { lat: 35.8036, lng: 140.1147 },
   fallbackZoom: 13,
   mapId: "",
-  boundaryLabel: "境界データは暫定です。正式な定義が確定したら `data/boundary.json` を差し替えてください。",
   categoryDefinitions: [
     { id: "shopping", label: "ショッピング", color: "#d74f3f" },
     { id: "park", label: "公園", color: "#4f8757" },
@@ -52,7 +51,6 @@ const elements = {
   mapMeta: document.querySelector("#map-meta"),
   mapMessage: document.querySelector("#map-message"),
   map: document.querySelector("#map"),
-  boundaryNote: document.querySelector("#boundary-note"),
   detailCard: document.querySelector("#detail-card"),
   spotList: document.querySelector("#spot-list"),
   resultCount: document.querySelector("#result-count"),
@@ -104,7 +102,6 @@ async function boot() {
   renderDetail();
   renderList();
   updateMeta();
-  renderBoundaryNote();
 
   if (config.mapsApiKey) {
     try {
@@ -755,7 +752,7 @@ function createReviewTimelineSection(spot) {
 
   const heading = document.createElement("h4");
   heading.className = "detail-card__submissions-title";
-  heading.textContent = spot.submissions.length > 1 ? `みんなの投稿 (${spot.submissions.length}件)` : "投稿内容";
+  heading.textContent = spot.submissions.length > 1 ? `みんなのおすすめ (${spot.submissions.length}件)` : "おすすめメモ";
   section.appendChild(heading);
 
   const list = document.createElement("div");
@@ -769,7 +766,7 @@ function createReviewTimelineSection(spot) {
     top.className = "detail-card__submission-top";
 
     const label = document.createElement("strong");
-    label.textContent = `口コミ ${index + 1}`;
+    label.textContent = `おすすめ ${index + 1}`;
     top.appendChild(label);
 
     const bylineParts = [];
