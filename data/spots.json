@@ -366,5 +366,44 @@
         "photos": []
       }
     ]
+  },
+  {
+    "id": "小林牧場の桜",
+    "name": "小林牧場の桜",
+    "category": "sightseeing",
+    "categoryLabel": "観光名所",
+    "description": "小林牧場は昭和40年に設けられた競走馬の保養育成のための牧場で、東京の大井競馬場などに出走する馬がここで調教されています。牧場の入り口からロータリーまで続く約700メートルの桜並木は見事で、印西市の花見の名所として、桜の季節には多くの方でにぎわいます。開花時期には印西市ＨＰにて随時開花状況をアップしてまいりますので、ご覧ください。",
+    "address": "〒270-1318　 千葉県印西市小林地先",
+    "reason": "",
+    "author": "ゆうさん",
+    "url": "http://www.city.inzai.lg.jp/0000001350.html",
+    "referenceUrls": [
+      "http://www.city.inzai.lg.jp/0000001350.html"
+    ],
+    "photos": [],
+    "hidden": false,
+    "lat": 35.8191865,
+    "lng": 140.1758231,
+    "createdAt": "2026-04-09T10:13:15.000Z",
+    "updatedAt": "2026-04-09T10:13:15.000Z",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "小林牧場は昭和40年に設けられた競走馬の保養育成のための牧場で、東京の大井競馬場などに出走する馬がここで調教されています。牧場の入り口からロータリーまで続く約700メートルの桜並木は見事で、印西市の花見の名所として、桜の季節には多くの方でにぎわいます。開花時期には印西市ＨＰにて随時開花状況をアップしてまいりますので、ご覧ください。",
+        "reason": "",
+        "author": "ゆうさん",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-09T10:13:15.000Z",
+        "url": "http://www.city.inzai.lg.jp/0000001350.html",
+        "referenceUrls": [
+          "http://www.city.inzai.lg.jp/0000001350.html"
+        ],
+        "photos": []
+      }
+    ]
   }
 ]
