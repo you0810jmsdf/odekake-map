@@ -292,5 +292,44 @@
         "photos": []
       }
     ]
+  },
+  {
+    "id": "ジョイフル本田千葉ニュータウン中央店",
+    "name": "ジョイフル本田千葉ニュータウン中央店",
+    "category": "shopping",
+    "categoryLabel": "ショッピング",
+    "description": "東京ドーム3.9個ぶんの敷地面積と、3450台収容の駐車場を兼ねそろえた日本最大のホームセンター",
+    "address": "〒270-1331　千葉県印西市牧の原2-1",
+    "reason": "",
+    "author": "ゆうさん",
+    "url": "https://www.jalan.net/kankou/spt_guide000000189171/?partsScreenId=OUW3131&ccnt=kankou_rec_arnd_rnk&screenId=OUW2201",
+    "referenceUrls": [
+      "https://www.jalan.net/kankou/spt_guide000000189171/?partsScreenId=OUW3131&ccnt=kankou_rec_arnd_rnk&screenId=OUW2201"
+    ],
+    "photos": [],
+    "hidden": false,
+    "lat": 35.8066309,
+    "lng": 140.1561438,
+    "createdAt": "2026-04-09T10:09:33.000Z",
+    "updatedAt": "2026-04-09T10:09:33.000Z",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "東京ドーム3.9個ぶんの敷地面積と、3450台収容の駐車場を兼ねそろえた日本最大のホームセンター",
+        "reason": "",
+        "author": "ゆうさん",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-09T10:09:33.000Z",
+        "url": "https://www.jalan.net/kankou/spt_guide000000189171/?partsScreenId=OUW3131&ccnt=kankou_rec_arnd_rnk&screenId=OUW2201",
+        "referenceUrls": [
+          "https://www.jalan.net/kankou/spt_guide000000189171/?partsScreenId=OUW3131&ccnt=kankou_rec_arnd_rnk&screenId=OUW2201"
+        ],
+        "photos": []
+      }
+    ]
   }
 ]
