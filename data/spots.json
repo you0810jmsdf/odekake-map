@@ -3,11 +3,15 @@
     "id": "aeon-mall",
     "name": "イオンモール千葉ニュータウン",
     "category": "shopping",
+    "categoryLabel": "shopping",
     "description": "買い物だけでなく、イベントや食事も楽しめる大型商業施設です。",
     "address": "千葉県印西市中央北3-2",
     "reason": "雨の日でも一日過ごしやすく、家族でも立ち寄りやすい場所です。",
     "author": "COCoLa運営",
     "url": "https://chibanewtown-aeonmall.com/",
+    "referenceUrls": [
+      "https://chibanewtown-aeonmall.com/"
+    ],
     "photos": [
       {
         "src": "https://images.unsplash.com/photo-1481437156560-3205f6a55735?auto=format&fit=crop&w=1200&q=80",
@@ -20,18 +24,55 @@
         "caption": "休日のおでかけをイメージした写真"
       }
     ],
+    "hidden": false,
     "lat": 35.8016,
-    "lng": 140.114
+    "lng": 140.114,
+    "createdAt": "",
+    "updatedAt": "",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "買い物だけでなく、イベントや食事も楽しめる大型商業施設です。",
+        "reason": "雨の日でも一日過ごしやすく、家族でも立ち寄りやすい場所です。",
+        "author": "COCoLa運営",
+        "contact": "",
+        "source": "",
+        "submittedAt": "",
+        "url": "https://chibanewtown-aeonmall.com/",
+        "referenceUrls": [
+          "https://chibanewtown-aeonmall.com/"
+        ],
+        "photos": [
+          {
+            "src": "https://images.unsplash.com/photo-1481437156560-3205f6a55735?auto=format&fit=crop&w=1200&q=80",
+            "alt": "ショッピングモールの館内",
+            "caption": "大型商業施設の雰囲気が伝わるイメージ写真"
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=1200&q=80",
+            "alt": "買い物を楽しむ人の様子",
+            "caption": "休日のおでかけをイメージした写真"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "big-hop",
     "name": "BIGHOPガーデンモール印西",
     "category": "shopping",
+    "categoryLabel": "shopping",
     "description": "アウトレット感覚で散策できる開放的な商業施設です。",
     "address": "千葉県印西市原1-2",
     "reason": "週末のおでかけ先として歩いて回りやすく、気軽に立ち寄れます。",
     "author": "COCoLa運営",
     "url": "https://www.bighop.jp/",
+    "referenceUrls": [
+      "https://www.bighop.jp/"
+    ],
     "photos": [
       {
         "src": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80",
@@ -39,18 +80,48 @@
         "caption": "開放感のあるモールをイメージした写真"
       }
     ],
+    "hidden": false,
     "lat": 35.7932,
-    "lng": 140.1677
+    "lng": 140.1677,
+    "createdAt": "",
+    "updatedAt": "",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "アウトレット感覚で散策できる開放的な商業施設です。",
+        "reason": "週末のおでかけ先として歩いて回りやすく、気軽に立ち寄れます。",
+        "author": "COCoLa運営",
+        "contact": "",
+        "source": "",
+        "submittedAt": "",
+        "url": "https://www.bighop.jp/",
+        "referenceUrls": [
+          "https://www.bighop.jp/"
+        ],
+        "photos": [
+          {
+            "src": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80",
+            "alt": "屋外型モールのイメージ",
+            "caption": "開放感のあるモールをイメージした写真"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "makinohara-park",
     "name": "牧の原公園",
     "category": "park",
+    "categoryLabel": "park",
     "description": "広場と緑があり、散歩や気分転換に立ち寄りやすい公園です。",
     "address": "千葉県印西市牧の原",
     "reason": "空が広く感じられて、季節の景色も楽しみやすい場所です。",
     "author": "COCoLa運営",
     "url": "",
+    "referenceUrls": [],
     "photos": [
       {
         "src": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
@@ -58,8 +129,34 @@
         "caption": "散歩やピクニックをイメージした写真"
       }
     ],
+    "hidden": false,
     "lat": 35.7982,
-    "lng": 140.1502
+    "lng": 140.1502,
+    "createdAt": "",
+    "updatedAt": "",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "広場と緑があり、散歩や気分転換に立ち寄りやすい公園です。",
+        "reason": "空が広く感じられて、季節の景色も楽しみやすい場所です。",
+        "author": "COCoLa運営",
+        "contact": "",
+        "source": "",
+        "submittedAt": "",
+        "url": "",
+        "referenceUrls": [],
+        "photos": [
+          {
+            "src": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+            "alt": "公園と自然の風景",
+            "caption": "散歩やピクニックをイメージした写真"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "inzai-gourmet",
@@ -71,6 +168,7 @@
     "reason": "ひと休みしたい時に使いやすく、落ち着いた時間を過ごせます。",
     "author": "サンプル投稿",
     "url": "",
+    "referenceUrls": [],
     "photos": [
       {
         "src": "https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=80",
@@ -78,8 +176,34 @@
         "caption": "落ち着いた時間をイメージしたカフェ写真"
       }
     ],
+    "hidden": false,
     "lat": 35.7948,
-    "lng": 140.1121
+    "lng": 140.1121,
+    "createdAt": "",
+    "updatedAt": "",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "投稿例として掲載しているサンプルスポットです。実際の運用時は取材内容に合わせて更新してください。",
+        "reason": "ひと休みしたい時に使いやすく、落ち着いた時間を過ごせます。",
+        "author": "サンプル投稿",
+        "contact": "",
+        "source": "",
+        "submittedAt": "",
+        "url": "",
+        "referenceUrls": [],
+        "photos": [
+          {
+            "src": "https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=80",
+            "alt": "カフェのドリンク写真",
+            "caption": "落ち着いた時間をイメージしたカフェ写真"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "local-spot",
@@ -91,6 +215,7 @@
     "reason": "暮らしの視点で魅力を見つけたサンプルデータです。",
     "author": "COCoLa運営",
     "url": "",
+    "referenceUrls": [],
     "photos": [
       {
         "src": "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1200&q=80",
@@ -98,8 +223,74 @@
         "caption": "フォームで追加された新しいカテゴリも表示可能です。"
       }
     ],
+    "hidden": false,
     "lat": 35.7893,
-    "lng": 140.0584
+    "lng": 140.0584,
+    "createdAt": "",
+    "updatedAt": "",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "地域のおすすめを追加するためのサンプルスポットです。フォームから新しいカテゴリを提案する運用もできます。",
+        "reason": "暮らしの視点で魅力を見つけたサンプルデータです。",
+        "author": "COCoLa運営",
+        "contact": "",
+        "source": "",
+        "submittedAt": "",
+        "url": "",
+        "referenceUrls": [],
+        "photos": [
+          {
+            "src": "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1200&q=80",
+            "alt": "街歩きのイメージ",
+            "caption": "フォームで追加された新しいカテゴリも表示可能です。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "アウトドアフィールドcimax",
+    "name": "アウトドアフィールドCIMAX",
+    "category": "other",
+    "categoryLabel": "その他",
+    "description": "千葉県印西市にある森遊びのできるアウトドアフィールド。\nサバイバルゲーム、バギー体験、ピザ焼き体験、薪割り体験、カーステイ、キャンプ、カフェ＆Barなどサービス満点！\n広大な敷地面積は、東京ドームがすっぽり入るほど。\nこんなことやりたい、と相談いただければ、大抵のことはできます。",
+    "address": "千葉県印西市師戸2300",
+    "reason": "",
+    "author": "ゆうさん",
+    "url": "https://www.jalan.net/kankou/spt_guide000000213989/?screenId=OUW1701",
+    "referenceUrls": [
+      "https://www.jalan.net/kankou/spt_guide000000213989/?screenId=OUW1701",
+      "https://www.cimax.jp/"
+    ],
+    "photos": [],
+    "hidden": false,
+    "lat": 35.7662504,
+    "lng": 140.1836834,
+    "createdAt": "2026-04-09T10:04:10.000Z",
+    "updatedAt": "2026-04-09T10:04:10.000Z",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "千葉県印西市にある森遊びのできるアウトドアフィールド。\nサバイバルゲーム、バギー体験、ピザ焼き体験、薪割り体験、カーステイ、キャンプ、カフェ＆Barなどサービス満点！\n広大な敷地面積は、東京ドームがすっぽり入るほど。\nこんなことやりたい、と相談いただければ、大抵のことはできます。",
+        "reason": "",
+        "author": "ゆうさん",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-09T10:04:10.000Z",
+        "url": "https://www.jalan.net/kankou/spt_guide000000213989/?screenId=OUW1701",
+        "referenceUrls": [
+          "https://www.jalan.net/kankou/spt_guide000000213989/?screenId=OUW1701",
+          "https://www.cimax.jp/"
+        ],
+        "photos": []
+      }
+    ]
   }
 ]
-
