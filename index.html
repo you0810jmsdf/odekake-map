@@ -4,112 +4,59 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>COCoLa おでかけMAP</title>
-  <meta name="description" content="千葉ニュータウンエリアの市民おすすめスポットを地図で見られる埋め込み用Webアプリ">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta name="description" content="千葉ニュータウンエリアのおすすめスポットを、市民の声とともにめぐれる COCoLa の地域ガイドマップ">
   <link rel="stylesheet" href="./assets/styles.css">
 </head>
 <body>
   <div class="app-shell">
     <header class="hero">
       <div class="hero__copy">
-        <p class="eyebrow">COCoLa Community Map</p>
-        <h1>千葉ニュータウンの<br>おすすめを見つける</h1>
+        <p class="eyebrow">COCoLa Local Guide</p>
+        <h1>まちのおすすめを、<br>次のおでかけに。</h1>
+        <p class="hero__story">千葉ニュータウンエリアで見つけた、ちょっといい場所を集めたコミュニティマップです。</p>
         <p class="hero__lead">
-          市民のみなさんの投稿をもとに、地域の魅力をカテゴリ別で見られる埋め込み用マップです。
+          お買い物、公園、グルメ、身近な寄り道先まで。
+          みんなの投稿を手がかりに、その日の気分に合う場所をやわらかく探せます。
         </p>
       </div>
-      <div class="hero__actions">
-        <a id="submit-link" class="button button--primary" href="#" target="_blank" rel="noreferrer noopener">スポットを投稿する</a>
-        <a id="edit-link" class="button button--secondary" href="#" target="_blank" rel="noreferrer noopener">情報修正を送る</a>
+      <div class="hero__aside">
+        <section class="hero-card" aria-label="このマップについて">
+          <p class="hero-card__eyebrow">Guide</p>
+          <h2>みつける、のこす、広がる</h2>
+          <p>
+            気になる場所を探して、よかった理由を短く書き残していく。
+            COCoLa らしい、生活者目線の地域案内を育てていくための地図です。
+          </p>
+        </section>
+        <div class="hero-stats" aria-label="マップの概要">
+          <article class="hero-stat">
+            <span class="hero-stat__label">エリア</span>
+            <strong id="hero-region-name" class="hero-stat__value">千葉ニュータウンエリア</strong>
+          </article>
+          <article class="hero-stat">
+            <span class="hero-stat__label">掲載スポット</span>
+            <strong id="hero-spot-count" class="hero-stat__value">-</strong>
+          </article>
+          <article class="hero-stat">
+            <span class="hero-stat__label">みんなの声</span>
+            <strong id="hero-submission-count" class="hero-stat__value">-</strong>
+          </article>
+        </div>
+        <div class="hero__actions">
+          <a id="submit-link" class="button button--primary" href="#" target="_blank" rel="noreferrer noopener">おすすめを投稿する</a>
+          <a id="edit-link" class="button button--secondary" href="#" target="_blank" rel="noreferrer noopener">掲載情報を修正する</a>
+        </div>
       </div>
     </header>
 
-    <section id="status-panel" class="status-panel" aria-label="設定状況"></section>
-
-    <section class="panel panel--submit-assist" aria-labelledby="submit-assist-title">
-      <div class="panel__header">
-        <div>
-          <p class="panel__eyebrow">Post Support</p>
-          <h2 id="submit-assist-title">Draft Helper</h2>
-        </div>
-        <p class="panel__meta">Prepare the text before opening the form</p>
-      </div>
-
-      <div class="submit-assist">
-        <div class="submit-assist__intro">
-          <p id="submit-assist-lead" class="submit-assist__lead"></p>
-          <div id="submit-assist-tips" class="submit-assist__tips" aria-live="polite"></div>
-        </div>
-
-        <div class="submit-progress" aria-live="polite">
-          <div class="submit-progress__header">
-            <p class="submit-progress__title">Ready Check</p>
-            <p id="draft-progress-text" class="submit-progress__text"></p>
-          </div>
-          <div id="draft-required-list" class="submit-progress__list"></div>
-        </div>
-
-        <div class="submit-draft">
-          <label class="field" id="field-name-wrap">
-            <span class="field__label">Spot Name</span>
-            <input id="draft-name" type="text" maxlength="80" placeholder="Name of the spot">
-          </label>
-
-          <label class="field">
-            <span class="field__label">Category</span>
-            <select id="draft-category"></select>
-          </label>
-
-          <label class="field" id="field-address-wrap">
-            <span class="field__label">Address</span>
-            <input id="draft-address" type="text" maxlength="120" placeholder="Area, street, or landmark">
-          </label>
-
-          <label class="field" id="field-description-wrap">
-            <span class="field__label">Highlights</span>
-            <textarea id="draft-description" rows="4" maxlength="240" placeholder="What is good about this place?"></textarea>
-          </label>
-
-          <label class="field">
-            <span class="field__label">Reason / Experience</span>
-            <textarea id="draft-reason" rows="4" maxlength="240" placeholder="Why do you recommend it?"></textarea>
-          </label>
-
-          <label class="field">
-            <span class="field__label">Reference URL</span>
-            <input id="draft-url" type="url" maxlength="240" placeholder="https://example.com/">
-          </label>
-
-          <label class="field">
-            <span class="field__label">Author Name</span>
-            <input id="draft-author" type="text" maxlength="60" placeholder="Optional">
-          </label>
-        </div>
-
-        <div class="submit-assist__footer">
-          <div class="submit-assist__actions">
-            <button id="copy-draft-button" class="button button--secondary" type="button">Copy Draft</button>
-            <a id="copy-open-form-link" class="button button--primary" href="#" target="_blank" rel="noreferrer noopener">Copy and Open Form</a>
-            <button id="clear-draft-button" class="button button--ghost" type="button">Clear Draft</button>
-          </div>
-          <p id="draft-copy-status" class="submit-assist__status" aria-live="polite"></p>
-        </div>
-
-        <label class="field">
-          <span class="field__label">Preview Text</span>
-          <textarea id="draft-preview" class="submit-assist__preview" rows="10" readonly></textarea>
-        </label>
-      </div>
-    </section>
+    <section id="status-panel" class="status-panel" aria-label="概要"></section>
 
     <main class="layout">
       <section class="panel panel--map" aria-labelledby="map-title">
         <div class="panel__header">
           <div>
-            <p class="panel__eyebrow">Map</p>
-            <h2 id="map-title">おでかけスポットマップ</h2>
+            <p class="panel__eyebrow">Explore</p>
+            <h2 id="map-title">おでかけスポットを探す</h2>
           </div>
           <p class="panel__meta" id="map-meta">スポットを読み込み中です...</p>
         </div>
@@ -138,8 +85,8 @@
         <section class="panel panel--detail" aria-labelledby="detail-title">
           <div class="panel__header">
             <div>
-              <p class="panel__eyebrow">Detail</p>
-              <h2 id="detail-title">スポット詳細</h2>
+              <p class="panel__eyebrow">Story</p>
+              <h2 id="detail-title">スポットの詳しい紹介</h2>
             </div>
           </div>
           <div id="detail-card" class="detail-card">
@@ -150,8 +97,8 @@
         <section class="panel panel--list" aria-labelledby="list-title">
           <div class="panel__header">
             <div>
-              <p class="panel__eyebrow">List</p>
-              <h2 id="list-title">スポット一覧</h2>
+              <p class="panel__eyebrow">Browse</p>
+              <h2 id="list-title">一覧から選ぶ</h2>
             </div>
             <p class="panel__meta"><span id="result-count">0</span>件表示</p>
           </div>
