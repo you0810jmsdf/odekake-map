@@ -8,10 +8,10 @@ const defaultConfig = {
   fallbackZoom: 13,
   mapId: "",
   categoryDefinitions: [
-    { id: "shopping", label: "ショッピング", color: "#d74f3f" },
-    { id: "park", label: "公園", color: "#4f8757" },
-    { id: "gourmet", label: "ぐるめ", color: "#dc8c2f" },
-    { id: "other", label: "その他", color: "#5a76a8" }
+    { id: "shopping", label: "ショッピング", color: "#ef7f4d" },
+    { id: "park", label: "公園", color: "#1d9e75" },
+    { id: "gourmet", label: "グルメ", color: "#f2b134" },
+    { id: "other", label: "その他", color: "#6d79d8" }
   ]
 };
 
@@ -73,7 +73,10 @@ const elements = {
   draftRequiredList: document.querySelector("#draft-required-list"),
   fieldNameWrap: document.querySelector("#field-name-wrap"),
   fieldAddressWrap: document.querySelector("#field-address-wrap"),
-  fieldDescriptionWrap: document.querySelector("#field-description-wrap")
+  fieldDescriptionWrap: document.querySelector("#field-description-wrap"),
+  heroRegionName: document.querySelector("#hero-region-name"),
+  heroSpotCount: document.querySelector("#hero-spot-count"),
+  heroSubmissionCount: document.querySelector("#hero-submission-count")
 };
 
 boot().catch((error) => {
@@ -122,15 +125,19 @@ async function boot() {
 function applyConfig() {
   document.body.classList.toggle("is-embed", embedMode);
   document.title = config.appTitle;
+  if (elements.heroRegionName) {
+    elements.heroRegionName.textContent = config.regionName;
+  }
   const lead = document.querySelector(".hero__lead");
   if (lead) {
-    lead.textContent = `市民のみなさんの投稿をもとに、${config.regionName}の魅力をカテゴリ別で見られる埋め込み用マップです。`;
+    lead.textContent = `お買い物、公園、グルメ、身近な寄り道先まで。${config.regionName}の魅力を、市民のみなさんの投稿を手がかりにやわらかく探せます。`;
   }
 
   configureExternalLink(elements.submitLink, config.submitFormUrl);
   configureExternalLink(elements.editLink, config.editFormUrl);
   configureExternalLink(elements.copyOpenFormLink, config.submitFormUrl);
   renderSubmitAssistIntro();
+  renderHeroSummary();
   renderStatusPanel();
 }
 
@@ -194,7 +201,7 @@ function initializeDraftSupport() {
 
 function renderSubmitAssistIntro() {
   if (elements.submitAssistLead) {
-    elements.submitAssistLead.textContent = `You can organize what to submit for ${config.regionName} before opening the form.`;
+    elements.submitAssistLead.textContent = `${config.regionName}で紹介したい場所を、フォームを開く前に短く整理できます。`;
   }
 
   if (!elements.submitAssistTips) {
@@ -202,9 +209,9 @@ function renderSubmitAssistIntro() {
   }
 
   const tips = [
-    "Write the name, place, and reason first to make posting faster.",
-    "URL and author name are optional. You can keep them empty.",
-    config.submitFormUrl ? "Copy the draft, then open the form in a new tab." : "Set the submit form URL to turn this into a full posting flow."
+    "スポット名、場所、おすすめ理由の3つがあると投稿しやすくなります。",
+    "参考URLと投稿者名は任意です。空欄のままでも大丈夫です。",
+    config.submitFormUrl ? "メモをコピーしてからフォームを開くと、投稿がスムーズです。" : "投稿フォーム URL を設定すると、そのまま投稿フローとして使えます。"
   ];
 
   elements.submitAssistTips.innerHTML = "";
@@ -287,13 +294,13 @@ function persistDraft() {
 function buildDraftPreview() {
   const categoryLabel = getCategoryLabel(state.draft.category);
   const lines = [
-    `Spot Name: ${state.draft.name || "-"}`,
-    `Category: ${categoryLabel || "-"}`,
-    `Address: ${state.draft.address || "-"}`,
-    `Highlights: ${state.draft.description || "-"}`,
-    `Reason / Experience: ${state.draft.reason || "-"}`,
-    `Reference URL: ${state.draft.url || "-"}`,
-    `Author Name: ${state.draft.author || "-"}`
+    `スポット名: ${state.draft.name || "-"}`,
+    `カテゴリ: ${categoryLabel || "-"}`,
+    `場所・住所: ${state.draft.address || "-"}`,
+    `見どころ: ${state.draft.description || "-"}`,
+    `おすすめ理由・体験: ${state.draft.reason || "-"}`,
+    `参考URL: ${state.draft.url || "-"}`,
+    `投稿者名: ${state.draft.author || "-"}`
   ];
 
   return lines.join("\n");
@@ -303,10 +310,10 @@ function buildDraftStatus() {
   const requiredCount = getDraftChecklist().filter((item) => item.done).length;
 
   if (requiredCount === 3) {
-    return "The draft is ready. Copy it and paste it into the form.";
+    return "投稿メモの準備ができました。コピーしてフォームに貼り付けられます。";
   }
 
-  return "Fill in the spot name, address, and recommendation details for an easier post.";
+  return "スポット名、場所、おすすめ内容を埋めると、投稿しやすくなります。";
 }
 
 async function copyDraftPreview() {
@@ -317,12 +324,12 @@ async function copyDraftPreview() {
   try {
     await navigator.clipboard.writeText(elements.draftPreview.value);
     if (elements.draftCopyStatus) {
-      elements.draftCopyStatus.textContent = "Draft copied. You can paste it into the form.";
+      elements.draftCopyStatus.textContent = "貼り付け用テキストをコピーしました。フォームにそのまま貼り付けできます。";
     }
   } catch (error) {
     console.error("Copy failed.", error);
     if (elements.draftCopyStatus) {
-      elements.draftCopyStatus.textContent = "Copy failed. Please select and copy the preview text manually.";
+      elements.draftCopyStatus.textContent = "コピーに失敗しました。下のテキスト欄を選択して手動でコピーしてください。";
     }
   }
 }
@@ -365,9 +372,9 @@ function pickDraftFields(value) {
 
 function getDraftChecklist() {
   return [
-    { key: "name", label: "Spot Name", done: Boolean(state.draft.name.trim()) },
-    { key: "address", label: "Address", done: Boolean(state.draft.address.trim()) },
-    { key: "description", label: "Highlights or Reason", done: Boolean((state.draft.description || state.draft.reason).trim()) }
+    { key: "name", label: "スポット名", done: Boolean(state.draft.name.trim()) },
+    { key: "address", label: "場所・住所", done: Boolean(state.draft.address.trim()) },
+    { key: "description", label: "見どころ・理由", done: Boolean((state.draft.description || state.draft.reason).trim()) }
   ];
 }
 
@@ -376,7 +383,7 @@ function renderDraftReadiness() {
   const doneCount = checklist.filter((item) => item.done).length;
 
   if (elements.draftProgressText) {
-    elements.draftProgressText.textContent = `${doneCount} / ${checklist.length} required items ready`;
+    elements.draftProgressText.textContent = `${doneCount} / ${checklist.length} 項目の準備ができています`;
   }
 
   if (elements.draftRequiredList) {
@@ -384,7 +391,7 @@ function renderDraftReadiness() {
     for (const item of checklist) {
       const row = document.createElement("div");
       row.className = `submit-progress__item${item.done ? " is-done" : " is-pending"}`;
-      row.textContent = item.done ? `${item.label} ready` : `${item.label} needed`;
+      row.textContent = item.done ? `${item.label} 入力済み` : `${item.label} を入力`;
       elements.draftRequiredList.appendChild(row);
     }
   }
@@ -438,40 +445,23 @@ function renderStatusPanel() {
   if (!elements.statusPanel) {
     return;
   }
-
-  const items = [
-    {
-      label: "地図表示",
-      text: config.mapsApiKey ? "Google Maps API キー設定済み" : "API キー未設定。公開前に `config.js` を更新してください。",
-      ok: Boolean(config.mapsApiKey)
-    },
-    {
-      label: "投稿フォーム",
-      text: config.submitFormUrl ? "投稿導線を設定済み" : "投稿フォーム URL 未設定",
-      ok: Boolean(config.submitFormUrl)
-    },
-    {
-      label: "修正フォーム",
-      text: config.editFormUrl ? "修正導線を設定済み" : "修正フォーム URL 未設定",
-      ok: Boolean(config.editFormUrl)
-    }
-  ];
-
   elements.statusPanel.innerHTML = "";
-  for (const item of items) {
-    const card = document.createElement("section");
-    card.className = "status-card";
+  elements.statusPanel.hidden = true;
+}
 
-    const label = document.createElement("p");
-    label.className = "status-card__label";
-    label.textContent = item.label;
+function renderHeroSummary() {
+  const submissionTotal = state.spots.reduce((sum, spot) => sum + spot.submissionCount, 0);
 
-    const value = document.createElement("p");
-    value.className = `status-card__value ${item.ok ? "is-ok" : "is-warn"}`;
-    value.textContent = item.text;
+  if (elements.heroRegionName) {
+    elements.heroRegionName.textContent = config.regionName;
+  }
 
-    card.append(label, value);
-    elements.statusPanel.appendChild(card);
+  if (elements.heroSpotCount) {
+    elements.heroSpotCount.textContent = state.spots.length ? `${state.spots.length}スポット` : "準備中";
+  }
+
+  if (elements.heroSubmissionCount) {
+    elements.heroSubmissionCount.textContent = submissionTotal ? `${submissionTotal}件の投稿` : "投稿受付中";
   }
 }
 
@@ -637,6 +627,8 @@ function updateMeta() {
   const visible = getVisibleSpots().length;
   elements.resultCount.textContent = String(visible);
   elements.mapMeta.textContent = `${visible}件表示 / 全${total}件`;
+  renderHeroSummary();
+  renderStatusPanel();
 }
 
 function ensureSelectedSpotVisible() {
@@ -667,6 +659,7 @@ function renderList() {
     const button = document.createElement("button");
     button.type = "button";
     button.className = `spot-item${spot.id === state.selectedSpotId ? " is-selected" : ""}`;
+    button.style.setProperty("--spot-accent", getSpotAccent(spot));
     button.addEventListener("click", () => {
       selectSpot(spot.id, true);
     });
@@ -685,6 +678,14 @@ function renderList() {
     body.className = "spot-item__body";
     body.textContent = truncateText(spot.description || spot.reason || "説明は準備中です。", 72);
 
+    const meta = document.createElement("div");
+    meta.className = "spot-item__meta";
+
+    const personality = document.createElement("span");
+    personality.className = "spot-item__personality";
+    personality.style.setProperty("--personality-accent", getPersonalityColor(spot.author || spot.name));
+    personality.textContent = `${spot.author || "地域のみんな"}さんのおすすめ`;
+
     const address = document.createElement("p");
     address.className = "spot-item__address";
     address.textContent = spot.address || "住所未登録";
@@ -693,7 +694,8 @@ function renderList() {
       address.textContent = `${address.textContent} ・ ${spot.submissionCount}件の投稿`;
     }
 
-    button.append(top, body, address);
+    meta.append(personality, address);
+    button.append(top, body, meta);
     fragment.appendChild(button);
   }
 
@@ -715,6 +717,7 @@ function renderDetail() {
   const stack = document.createElement("div");
   stack.className = "detail-card__stack";
   stack.appendChild(createBadge(spot.category));
+  stack.style.setProperty("--spot-accent", getSpotAccent(spot));
 
   const title = document.createElement("h3");
   title.textContent = spot.name;
@@ -761,6 +764,7 @@ function createReviewTimelineSection(spot) {
   getSortedSubmissions(spot.submissions).forEach((submission, index) => {
     const card = document.createElement("article");
     card.className = "detail-card__submission";
+    card.style.setProperty("--submission-accent", getPersonalityColor(submission.author || `${spot.name}-${index}`));
 
     const top = document.createElement("div");
     top.className = "detail-card__submission-top";
@@ -768,6 +772,12 @@ function createReviewTimelineSection(spot) {
     const label = document.createElement("strong");
     label.textContent = `おすすめ ${index + 1}`;
     top.appendChild(label);
+
+    const personality = document.createElement("span");
+    personality.className = "detail-card__submission-personality";
+    personality.style.setProperty("--personality-accent", getPersonalityColor(submission.author || `${spot.name}-${index}`));
+    personality.textContent = buildPersonalityLabel(submission.author);
+    top.appendChild(personality);
 
     const bylineParts = [];
     if (submission.submittedAt) {
@@ -963,14 +973,6 @@ function createCarousel(spot) {
     root.appendChild(dots);
   }
 
-  const captionText = spot.photos[currentIndex]?.caption || spot.photos[currentIndex]?.alt;
-  if (captionText) {
-    const caption = document.createElement("p");
-    caption.className = "detail-carousel__caption";
-    caption.textContent = captionText;
-    root.appendChild(caption);
-  }
-
   return root;
 }
 
@@ -1031,6 +1033,27 @@ function createBadge(categoryId) {
   badge.textContent = category.label;
   badge.style.color = category.color;
   return badge;
+}
+
+function getSpotAccent(spot) {
+  const category = state.categories.find((item) => item.id === spot.category);
+  return category?.color || "#1d9e75";
+}
+
+function getPersonalityColor(seed) {
+  const palette = ["#1d9e75", "#ef7f4d", "#6d79d8", "#f2b134", "#e56b8f", "#1fa7c9"];
+  const value = String(seed || "");
+  let hash = 0;
+
+  for (let index = 0; index < value.length; index += 1) {
+    hash = (hash * 31 + value.charCodeAt(index)) >>> 0;
+  }
+
+  return palette[hash % palette.length];
+}
+
+function buildPersonalityLabel(author) {
+  return author ? `${author}さんの視点` : "地域のみんなの視点";
 }
 
 async function loadGoogleMaps() {
