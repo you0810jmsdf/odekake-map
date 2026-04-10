@@ -444,5 +444,48 @@
         "photos": []
       }
     ]
+  },
+  {
+    "id": "印旛沼公園",
+    "name": "印旛沼公園",
+    "category": "park",
+    "categoryLabel": "公園",
+    "description": "花の丘公園と同じく、印西市にある千葉県立の公園「印旛沼公園」。\n印旛沼を見下ろす小高い丘になっています。ここは鎌倉時代の師戸 (もろと)城址。この城址こそが印旛沼公園です。",
+    "address": "千葉県印西市師戸",
+    "reason": "",
+    "author": "ゆうさん",
+    "url": "https://x.com/yachiyo_koen",
+    "referenceUrls": [
+      "https://x.com/yachiyo_koen",
+      "https://inzaiparque.com/inzai-park-imbanumapark/?fbclid=PAZnRzaARGRZhleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAad_P09LZCk75m_parOqIWpdHUzR7BnnxUBMFfmfDo_HOOAboT8T5d0K_NlUow_aem_EEgYQG77wDFbbdjNJXHhyg",
+      "https://www.instagram.com/innbanumakouenn/#"
+    ],
+    "photos": [],
+    "hidden": false,
+    "lat": 35.7527859,
+    "lng": 140.1836345,
+    "createdAt": "2026-04-10T21:07:07.000Z",
+    "updatedAt": "2026-04-10T21:07:07.000Z",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "花の丘公園と同じく、印西市にある千葉県立の公園「印旛沼公園」。\n印旛沼を見下ろす小高い丘になっています。ここは鎌倉時代の師戸 (もろと)城址。この城址こそが印旛沼公園です。",
+        "reason": "",
+        "author": "ゆうさん",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-10T21:07:07.000Z",
+        "url": "https://x.com/yachiyo_koen",
+        "referenceUrls": [
+          "https://x.com/yachiyo_koen",
+          "https://inzaiparque.com/inzai-park-imbanumapark/?fbclid=PAZnRzaARGRZhleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAad_P09LZCk75m_parOqIWpdHUzR7BnnxUBMFfmfDo_HOOAboT8T5d0K_NlUow_aem_EEgYQG77wDFbbdjNJXHhyg",
+          "https://www.instagram.com/innbanumakouenn/#"
+        ],
+        "photos": []
+      }
+    ]
   }
 ]
