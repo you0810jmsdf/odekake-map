@@ -591,5 +591,58 @@
         ]
       }
     ]
+  },
+  {
+    "id": "結縁寺",
+    "name": "結縁寺",
+    "category": "sightseeing",
+    "categoryLabel": "観光名所",
+    "description": "結縁寺といえば印西市民にはこのお寺が有名。\n国指定文化財「銅造不動明王立像 (どうぞうふどうみょうおうりゅうぞう)」が保存されているお寺です。\n寺名は「晴天山西光院結縁寺」と呼ばれます。",
+    "address": "千葉県印西市結縁寺516",
+    "reason": "",
+    "author": "ゆう",
+    "url": "https://inzaiparque.com/wp/inzai-cultural-property/",
+    "referenceUrls": [
+      "https://inzaiparque.com/wp/inzai-cultural-property/",
+      "https://inzaiparque.com/sampo-kechienji/"
+    ],
+    "photos": [
+      {
+        "src": "https://drive.google.com/thumbnail?id=1YCanwXTvcdoYV6Ubrg6PUflUl49ZWiLq&sz=w1600",
+        "alt": "結縁寺 の写真 1",
+        "caption": "結縁寺 の写真 1"
+      }
+    ],
+    "hidden": false,
+    "lat": 35.7902729,
+    "lng": 140.135096,
+    "createdAt": "2026-04-30T12:20:58.000Z",
+    "updatedAt": "2026-04-30T12:20:58.000Z",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "結縁寺といえば印西市民にはこのお寺が有名。\n国指定文化財「銅造不動明王立像 (どうぞうふどうみょうおうりゅうぞう)」が保存されているお寺です。\n寺名は「晴天山西光院結縁寺」と呼ばれます。",
+        "reason": "",
+        "author": "ゆう",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-30T12:20:58.000Z",
+        "url": "https://inzaiparque.com/wp/inzai-cultural-property/",
+        "referenceUrls": [
+          "https://inzaiparque.com/wp/inzai-cultural-property/",
+          "https://inzaiparque.com/sampo-kechienji/"
+        ],
+        "photos": [
+          {
+            "src": "https://drive.google.com/thumbnail?id=1YCanwXTvcdoYV6Ubrg6PUflUl49ZWiLq&sz=w1600",
+            "alt": "結縁寺 の写真 1",
+            "caption": "結縁寺 の写真 1"
+          }
+        ]
+      }
+    ]
   }
 ]
