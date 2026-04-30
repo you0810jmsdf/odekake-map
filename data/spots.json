@@ -540,5 +540,56 @@
         ]
       }
     ]
+  },
+  {
+    "id": "天神逆さの桜",
+    "name": "天神逆さの桜",
+    "category": "sightseeing",
+    "categoryLabel": "観光名所",
+    "description": "大森天神幼稚園の隣にある一本桜。\n品種はソメイヨシノとのこと。\n樹齢は推定50年の比較的若い桜です。\n吉高の大桜ほどの大きさはありませんが、地元で大切にされている桜",
+    "address": "千葉県印西市大森２４２６−３",
+    "reason": "",
+    "author": "ゆう",
+    "url": "https://inzaiparque.com/tenjinsakura/",
+    "referenceUrls": [
+      "https://inzaiparque.com/tenjinsakura/"
+    ],
+    "photos": [
+      {
+        "src": "https://drive.google.com/thumbnail?id=1aMaGIyCxXszwHe5_VjFR61xgpnmf39sj&sz=w1600",
+        "alt": "天神逆さの桜 の写真 1",
+        "caption": "天神逆さの桜 の写真 1"
+      }
+    ],
+    "hidden": false,
+    "lat": 35.8294828,
+    "lng": 140.1502235,
+    "createdAt": "2026-04-30T12:18:09.000Z",
+    "updatedAt": "2026-04-30T12:18:09.000Z",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "大森天神幼稚園の隣にある一本桜。\n品種はソメイヨシノとのこと。\n樹齢は推定50年の比較的若い桜です。\n吉高の大桜ほどの大きさはありませんが、地元で大切にされている桜",
+        "reason": "",
+        "author": "ゆう",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-30T12:18:09.000Z",
+        "url": "https://inzaiparque.com/tenjinsakura/",
+        "referenceUrls": [
+          "https://inzaiparque.com/tenjinsakura/"
+        ],
+        "photos": [
+          {
+            "src": "https://drive.google.com/thumbnail?id=1aMaGIyCxXszwHe5_VjFR61xgpnmf39sj&sz=w1600",
+            "alt": "天神逆さの桜 の写真 1",
+            "caption": "天神逆さの桜 の写真 1"
+          }
+        ]
+      }
+    ]
   }
 ]
