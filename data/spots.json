@@ -487,5 +487,58 @@
         "photos": []
       }
     ]
+  },
+  {
+    "id": "小林鯉のぼり",
+    "name": "小林鯉のぼり",
+    "category": "sightseeing",
+    "categoryLabel": "観光名所",
+    "description": "地域の子どもたちの成長とご近所の交流、地域活性のためにはじまった鯉のぼり。\n振り返るとすでに20年以上も続いています。\n「NPO法人小林住みよいまちづくり会」が中心となり、地域の人とともに作り上げ維持されているイベントです。\n小林の鯉のぼりが始まったのは、2000年はじめ～2005年頃。\n2026年4月12日 (日) ～ 5月5日 (祝)の土日祝日のみ\n8:00～17:00\n5月5日は10:00～12:00\nわた菓子・子ども鯉のぼり実演を予定\n荒天日は中止",
+    "address": "千葉県印西市小林大門下1 小林中学校前調整池 水鳥公園",
+    "reason": "",
+    "author": "ゆう",
+    "url": "https://inzaiparque.com/kobayashi-koinobori/?_gl=1*lc257z*_ga*MjAwMjc0MTc0MS4xNzc1NjM3MDc5*_ga_7VCZQVSZN7*czE3Nzc1NTA5MzYkbzQkZzAkdDE3Nzc1NTA5MzYkajYwJGwwJGgw#%E5%B0%8F%E6%9E%97%E3%81%AE%E3%81%93%E3%81%84%E3%81%AE%E3%81%BC%E3%82%8A%E3%81%A8%E3%81%AF",
+    "referenceUrls": [
+      "https://inzaiparque.com/kobayashi-koinobori/?_gl=1*lc257z*_ga*MjAwMjc0MTc0MS4xNzc1NjM3MDc5*_ga_7VCZQVSZN7*czE3Nzc1NTA5MzYkbzQkZzAkdDE3Nzc1NTA5MzYkajYwJGwwJGgw#%E5%B0%8F%E6%9E%97%E3%81%AE%E3%81%93%E3%81%84%E3%81%AE%E3%81%BC%E3%82%8A%E3%81%A8%E3%81%AF",
+      "https://kobamachi.com/"
+    ],
+    "photos": [
+      {
+        "src": "https://drive.google.com/thumbnail?id=1g-euvQmbLlRWhwK08CziaL_XN7Jb7rD7&sz=w1600",
+        "alt": "小林鯉のぼり の写真 1",
+        "caption": "小林鯉のぼり の写真 1"
+      }
+    ],
+    "hidden": false,
+    "lat": 35.822945,
+    "lng": 140.1871528,
+    "createdAt": "2026-04-30T12:13:10.000Z",
+    "updatedAt": "2026-04-30T12:13:10.000Z",
+    "hiddenAt": "",
+    "hiddenReason": "",
+    "updateSource": "",
+    "photoPreference": "",
+    "submissions": [
+      {
+        "description": "地域の子どもたちの成長とご近所の交流、地域活性のためにはじまった鯉のぼり。\n振り返るとすでに20年以上も続いています。\n「NPO法人小林住みよいまちづくり会」が中心となり、地域の人とともに作り上げ維持されているイベントです。\n小林の鯉のぼりが始まったのは、2000年はじめ～2005年頃。\n2026年4月12日 (日) ～ 5月5日 (祝)の土日祝日のみ\n8:00～17:00\n5月5日は10:00～12:00\nわた菓子・子ども鯉のぼり実演を予定\n荒天日は中止",
+        "reason": "",
+        "author": "ゆう",
+        "contact": "",
+        "source": "",
+        "submittedAt": "2026-04-30T12:13:10.000Z",
+        "url": "https://inzaiparque.com/kobayashi-koinobori/?_gl=1*lc257z*_ga*MjAwMjc0MTc0MS4xNzc1NjM3MDc5*_ga_7VCZQVSZN7*czE3Nzc1NTA5MzYkbzQkZzAkdDE3Nzc1NTA5MzYkajYwJGwwJGgw#%E5%B0%8F%E6%9E%97%E3%81%AE%E3%81%93%E3%81%84%E3%81%AE%E3%81%BC%E3%82%8A%E3%81%A8%E3%81%AF",
+        "referenceUrls": [
+          "https://inzaiparque.com/kobayashi-koinobori/?_gl=1*lc257z*_ga*MjAwMjc0MTc0MS4xNzc1NjM3MDc5*_ga_7VCZQVSZN7*czE3Nzc1NTA5MzYkbzQkZzAkdDE3Nzc1NTA5MzYkajYwJGwwJGgw#%E5%B0%8F%E6%9E%97%E3%81%AE%E3%81%93%E3%81%84%E3%81%AE%E3%81%BC%E3%82%8A%E3%81%A8%E3%81%AF",
+          "https://kobamachi.com/"
+        ],
+        "photos": [
+          {
+            "src": "https://drive.google.com/thumbnail?id=1g-euvQmbLlRWhwK08CziaL_XN7Jb7rD7&sz=w1600",
+            "alt": "小林鯉のぼり の写真 1",
+            "caption": "小林鯉のぼり の写真 1"
+          }
+        ]
+      }
+    ]
   }
 ]
