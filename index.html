@@ -3,113 +3,124 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>COCoLa おでかけMAP</title>
-  <meta name="description" content="千葉ニュータウンエリアのおすすめスポットを、市民の声とともにめぐれる COCoLa の地域ガイドマップ">
-  <link rel="stylesheet" href="./assets/styles.css">
+  <title>COCoLa おでかけMAP — 公開終了のお知らせ</title>
+  <meta name="description" content="COCoLa おでかけMAP は 2026年8月をもって公開を終了しました。COCoLa の活動状況については COCoLa サイトをご覧ください。">
+  <meta name="robots" content="noindex">
+  <style>
+    :root {
+      --bg: #fdfaf5;
+      --card: #ffffff;
+      --ink: #2f2a24;
+      --muted: #6b6259;
+      --accent: #a56100;
+      --accent-bg: #fff4e1;
+      --border: #e0a44e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px 16px;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+      line-height: 1.8;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+    .wrap { width: 100%; max-width: 640px; }
+    .notice {
+      background: var(--accent-bg);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 24px;
+    }
+    .eyebrow {
+      margin: 0 0 6px;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+    h1 {
+      margin: 0 0 18px;
+      font-size: 1.45rem;
+      color: var(--accent);
+      line-height: 1.5;
+    }
+    p { margin: 0 0 14px; }
+    .lead { font-size: 1.02rem; }
+    .sub {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+    .links {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .button {
+      display: inline-block;
+      padding: 11px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.94rem;
+      font-weight: 700;
+      transition: opacity .15s ease;
+    }
+    .button:hover { opacity: .82; }
+    .button--primary { background: var(--accent); color: #fff; }
+    .button--secondary {
+      background: var(--card);
+      color: var(--accent);
+      border: 1px solid var(--border);
+    }
+    .foot {
+      margin-top: 20px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-align: right;
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 1.25rem; }
+      .notice { padding: 22px 18px; }
+      .button { width: 100%; text-align: center; }
+    }
+  </style>
 </head>
 <body>
-  <div class="app-shell">
-    <header class="hero">
-      <div class="hero__copy">
-        <p class="eyebrow">COCoLa Local Guide</p>
-        <h1>まちのおすすめを、<br>次のおでかけに。</h1>
-        <p class="hero__story">千葉ニュータウンエリアで見つけた、ちょっといい場所を集めたコミュニティマップです。</p>
-        <p class="hero__lead">
-          お買い物、公園、グルメ、身近な寄り道先まで。
-          みんなの投稿を手がかりに、その日の気分に合う場所をやわらかく探せます。
-        </p>
+  <div class="wrap">
+    <section class="notice">
+      <p class="eyebrow">COCoLa Local Guide</p>
+      <h1>COCoLa おでかけMAP は<br>公開を終了しました</h1>
+
+      <p class="lead">
+        千葉ニュータウンエリアのおすすめスポットを紹介してきた「COCoLa おでかけMAP」は、
+        <strong>2026年8月をもって公開を終了</strong>しました。
+        スポットの新規投稿・編集の受付も停止しています。
+      </p>
+
+      <p class="sub">
+        ご覧いただいた皆さま、スポットを投稿してくださった皆さま、
+        ありがとうございました。
+      </p>
+
+      <p class="sub">
+        COCoLa はメンバー管理に活動をしぼって運営を続けています。
+        各団体・企業・行政とのハブ団体としての活動は、
+        市民活動団体「Community Bank INZAI（CBI）」に引き継ぎました。
+      </p>
+
+      <div class="links">
+        <a class="button button--primary" href="https://you0810jmsdf.github.io/cocola-site/">COCoLa サイトへ</a>
+        <a class="button button--secondary" href="https://communitybankinzai.github.io/cbi-site/" rel="noreferrer noopener">CBI サイトへ</a>
       </div>
-      <div class="hero__aside">
-        <section class="hero-card" aria-label="このマップについて">
-          <p class="hero-card__eyebrow">Guide</p>
-          <h2>みつける、のこす、広がる</h2>
-          <p>
-            気になる場所を探して、よかった理由を短く書き残していく。
-            COCoLa らしい、生活者目線の地域案内を育てていくための地図です。
-          </p>
-        </section>
-        <div class="hero-stats" aria-label="マップの概要">
-          <article class="hero-stat">
-            <span class="hero-stat__label">エリア</span>
-            <strong id="hero-region-name" class="hero-stat__value">千葉ニュータウンエリア</strong>
-          </article>
-          <article class="hero-stat">
-            <span class="hero-stat__label">掲載スポット</span>
-            <strong id="hero-spot-count" class="hero-stat__value">-</strong>
-          </article>
-          <article class="hero-stat">
-            <span class="hero-stat__label">みんなの声</span>
-            <strong id="hero-submission-count" class="hero-stat__value">-</strong>
-          </article>
-        </div>
-        <div class="hero__actions">
-          <a id="submit-link" class="button button--primary" href="#" target="_blank" rel="noreferrer noopener">おすすめを投稿する</a>
-          <a id="edit-link" class="button button--secondary" href="#" target="_blank" rel="noreferrer noopener">掲載情報を修正する</a>
-        </div>
-      </div>
-    </header>
 
-    <section id="status-panel" class="status-panel" aria-label="概要"></section>
-
-    <main class="layout">
-      <section class="panel panel--map" aria-labelledby="map-title">
-        <div class="panel__header">
-          <div>
-            <p class="panel__eyebrow">Explore</p>
-            <h2 id="map-title">おでかけスポットを探す</h2>
-          </div>
-          <p class="panel__meta" id="map-meta">スポットを読み込み中です...</p>
-        </div>
-
-        <div class="toolbar">
-          <div class="toolbar__group">
-            <label class="field field--search">
-              <span class="field__label">キーワード</span>
-              <input id="search-input" type="search" placeholder="スポット名・説明で検索">
-            </label>
-          </div>
-          <div class="toolbar__group">
-            <p class="toolbar__label">カテゴリ</p>
-            <div id="category-filters" class="chip-group" aria-label="カテゴリフィルター"></div>
-          </div>
-        </div>
-
-        <div class="map-frame">
-          <div id="map" class="map" aria-label="スポット地図"></div>
-          <div id="map-message" class="map-message" hidden></div>
-        </div>
-
-      </section>
-
-      <aside class="sidebar">
-        <section class="panel panel--detail" aria-labelledby="detail-title">
-          <div class="panel__header">
-            <div>
-              <p class="panel__eyebrow">Story</p>
-              <h2 id="detail-title">スポットの詳しい紹介</h2>
-            </div>
-          </div>
-          <div id="detail-card" class="detail-card">
-            <p class="detail-card__placeholder">地図上のピンまたは一覧からスポットを選ぶと、詳細がここに表示されます。</p>
-          </div>
-        </section>
-
-        <section class="panel panel--list" aria-labelledby="list-title">
-          <div class="panel__header">
-            <div>
-              <p class="panel__eyebrow">Browse</p>
-              <h2 id="list-title">一覧から選ぶ</h2>
-            </div>
-            <p class="panel__meta"><span id="result-count">0</span>件表示</p>
-          </div>
-          <div id="spot-list" class="spot-list" aria-live="polite"></div>
-        </section>
-      </aside>
-    </main>
+      <p class="foot">2026年8月16日</p>
+    </section>
   </div>
-
-  <script src="./config.js?v=20260409-2"></script>
-  <script type="module" src="./assets/app.js?v=20260409-2"></script>
-<script>(function(){var G='https://script.google.com/macros/s/AKfycbycw2FBvcm34mS9R8SUNg28KscGqqGjR1zjz3hnLYq8ckgKCZObYaC9kbMs8R2SGXgC/exec';var v=localStorage.getItem('cocola_vid');if(!v){v=Math.random().toString(36).slice(2)+Math.random().toString(36).slice(2);localStorage.setItem('cocola_vid',v);}new Image().src=G+'?mode=pageview&p='+encodeURIComponent('おでかけMAP')+'&vid='+encodeURIComponent(v);})();</script>
 </body>
 </html>
